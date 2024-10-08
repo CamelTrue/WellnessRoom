@@ -34,13 +34,8 @@ main {
   top: 0;
   left: 0;
   background:
-  linear-gradient(black 10%,rgba(0,0,0,0)80%),
-  url(./media/wave2.svg),
-  url(./media/wave1.svg);
-  background-position:
-  top 0 left 0,
-  bottom calc(0vh - 8vw) left 0,
-  bottom calc(3vh - 8vw) left 0;
+  linear-gradient(black 10%,rgba(0,0,0,0)80%), url(./media/wave2.svg); 
+  background-position: top 0 left 0, bottom calc(0vh - 8vw) left 0, bottom calc(3vh - 8vw) left 0; 
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -70,6 +65,14 @@ main {
   margin-top: 6vh;
   font-size: 28px;
   font-weight: 500;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-skin {
+  border-radius: 18px;
 }
 
 .card-section-title {
@@ -302,4 +305,35 @@ main {
 .footer-socials a:hover {
   transform: scale(1.2);
   filter: drop-shadow(0 0 10px white);
+}
+
+
+/* Scroll to top */
+.scroll-to-top-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  background-color: #ffcc00;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+  height: 60px;
+  width: 60px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scroll-to-top-button:hover {
+  background-color: #ff9900;
+}
+
+.arrow-icon {
+  transform: rotate(270deg);
 }

@@ -1,6 +1,7 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 function App() {
   return (
@@ -35,6 +36,8 @@ function App() {
           </div>
         </div>
       </footer>
+      <ScrollToTopButton />
+
     </div>
   );
 }

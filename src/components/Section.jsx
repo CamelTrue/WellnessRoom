@@ -1,6 +1,15 @@
-import React from 'react'
+import { useEffect } from "react";
+import AOS from "aos";
+import 'aos/dist/aos.css';
 
 const Section = () => {
+
+    useEffect(() => {
+        AOS.init({
+            duration: 1000, 
+            once: true,
+        });
+    }, []);
   return (
     <>
         <section className="container-fluid pt-5 icons-section">
@@ -20,17 +29,17 @@ const Section = () => {
                 <aside className="col-12 col-lg-5 infocard-icons-container d-flex flex-column justify-content-between">
                     <div className="row">
                         <div className="col-4 d-flex align-items-center justify-content-evenly">
-                            <figure className="infocard-icon m-0">
+                            <figure data-aos="fade-right" className="infocard-icon m-0">
                                 <i className="fa-solid fa-fire fa-3x text-danger"></i>
                             </figure>
                         </div>
                         <div className="col-4 d-flex align-items-center justify-content-evenly">
-                            <figure className="infocard-icon m-0">
+                            <figure data-aos="fade-down" className="infocard-icon m-0">
                                 <i className="fa-solid fa-seedling fa-3x text-success"></i>
                             </figure>
                         </div>
                         <div className="col-4 d-flex align-items-center justify-content-evenly">
-                            <figure className="infocard-icon m-0">
+                            <figure  data-aos="fade-left"className="infocard-icon m-0">
                                 <i className="fa-regular fa-bell fa-3x text-warning"></i>
                             </figure>
                         </div>
@@ -38,17 +47,17 @@ const Section = () => {
                     </div>
                     <div className="row">
                         <div className="col-4 d-flex align-items-center justify-content-evenly">
-                            <figure className="infocard-icon m-0">
+                            <figure data-aos="fade-up" className="infocard-icon m-0">
                                 <i className="fa-solid fa-box-open fa-3x text-primary"></i>
                             </figure>
                         </div>
                         <div className="col-4 d-flex align-items-center justify-content-evenly">
-                            <figure className="infocard-icon m-0">
+                            <figure data-aos="fade-right" className="infocard-icon m-0">
                                 <i className="fa-solid fa-code-branch fa-3x text-muted"></i>
                             </figure>
                         </div>
                         <div className="col-4 d-flex align-items-center justify-content-evenly">
-                            <figure className="infocard-icon m-0">
+                            <figure data-aos="fade-down" className="infocard-icon m-0">
                                 <i className="fa-solid fa-shield fa-3x text-black"></i>
                             </figure>
                         </div>
