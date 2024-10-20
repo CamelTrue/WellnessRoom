@@ -22,14 +22,14 @@ function App() {
                 </p>
               </div>
             </div>
-            <div className="col-5 ps-5 ms-auto">
+            <div className="col-3 ps-5 ms-auto">
               <div className="row footer-socials">
                 <h3 className="footer-title text-warning">Social</h3>
-                <div className="col-12 d-flex align-items-center justify-content-between pt-4">
-                  <a href="#"><i className="fa-brands fa-facebook-f fa-xl"></i></a>
-                  <a href="#"><i className="fa-brands fa-instagram fa-xl"></i></a>
-                  <a href="#"><i className="fa-brands fa-twitter fa-xl"></i></a>
-                  <a href="#"><i className="fa-brands fa-linkedin fa-xl"></i></a>
+                <div className="d-flex align-items-center">
+                  <a href="#"><i className="fa-brands fa-facebook-f fa-xl m-2"></i></a>
+                  <a href="#"><i className="fa-brands fa-instagram fa-xl m-2"></i></a>
+                  <a href="#"><i className="fa-brands fa-twitter fa-xl m-2"></i></a>
+                  <a href="#"><i className="fa-brands fa-linkedin fa-xl m-2"></i></a>
                 </div>
               </div>
             </div>
@@ -37,7 +37,6 @@ function App() {
         </div>
       </footer>
       <ScrollToTopButton />
-
     </div>
   );
 }

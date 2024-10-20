@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import ContactUs from './ContactUs';
 
 const Navbar = () => {
     useEffect(() => {
@@ -38,7 +39,6 @@ const Navbar = () => {
                         className="col12 header"
                         style={{
                             backgroundPosition: `${backgroundPosition.x} ${backgroundPosition.y}`,
-                            transition: 'background-position 0.1s ease-out'
                         }}
                     >
                         <div className="row position-relative">
@@ -48,7 +48,7 @@ const Navbar = () => {
                                         <h1 data-aos="fade-left" data-aos-delay="0" data-aos-duration="1000">Lorem Ipsum</h1>
                                         <h2 data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h2>
                                         <h2 data-aos="fade-left" data-aos-delay="400" data-aos-duration="1000">Animi voluptates nulla ratione veritatis, amet deserunt.</h2>
-                                        <button data-aos="fade-left" data-aos-delay="600" data-aos-duration="1000" className="btn-custom bg-warning">MORE</button>
+                                        <ContactUs />
                                     </div>
                                 </div>
                             </div>

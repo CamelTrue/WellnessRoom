@@ -308,32 +308,200 @@ main {
 }
 
 
-/* Scroll to top */
 .scroll-to-top-button {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 10px 15px;
-  background-color: #ffcc00;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s;
+  bottom: 2rem;
+  right: 2rem;
   height: 60px;
   width: 60px;
+  background-color: #1566C0; /* Personalizza come preferisci */
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  z-index: 1000;
+
+  /* Inizio dell'animazione */
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 
   display: flex;
   justify-content: center;
   align-items: center;
+
+  border-radius: 50%;
+}
+
+.scroll-to-top-button.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .scroll-to-top-button:hover {
-  background-color: #ff9900;
+  background-color: #0e4a8e;
 }
 
-.arrow-icon {
-  transform: rotate(270deg);
+
+
+
+
+
+/* ContactUs.css */
+
+/* Contenitore principale */
+.contact-us-container {
+  display: flex;
+  margin-top: 50px;
+}
+
+/* Bottone "Contattami" */
+.contact-button {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  background-color: #ffc107; /* Colore di sfondo giallo */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0; /* Inizialmente invisibile */
+  transform: translateX(-20px); /* Posizione iniziale */
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Animazione "fade-in" */
+.fade-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Overlay del Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Contenuto del Modal */
+.modal-content {
+  background-color: #fff;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 8px;
+  overflow: hidden;
+  animation: slide-down 0.5s ease-out;
+}
+
+/* Intestazione del Modal */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #ffc107;
+  color: #fff;
+}
+
+/* Titolo del Modal */
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.input-style {
+  background-color: #fff !important;
+  color: #000;
+}
+
+/* Bottone di chiusura */
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Corpo del Modal */
+.modal-body {
+  padding: 20px;
+}
+
+/* Gruppo di form */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Etichette del form */
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Input e textarea del form */
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Azioni del form */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Bottone "Invia" */
+.send-button {
+  padding: 10px 20px;
+  background-color: #28a745; /* Verde */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Bottone "Annulla" */
+.cancel-button {
+  padding: 10px 20px;
+  background-color: #dc3545; /* Rosso */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Animazione per il contenuto del modal */
+@keyframes slide-down {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Media Query per dispositivi più piccoli */
+@media (max-width: 600px) {
+  .modal-content {
+    width: 95%;
+  }
+
+  .contact-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
 }
