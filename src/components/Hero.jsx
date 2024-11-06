@@ -3,10 +3,10 @@ import IconContent from './IconContent';
 
 const Hero = () => {
     const cards = [
-        { iconClass: 'fa-regular fa-user fa-2x', title: 'Lorem', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quam sint quo unde! Suscipit repudiandae id deleniti! Error harum maiores velit quos minus.'},
-        { iconClass: 'fa-solid fa-location-dot fa-2x', title: 'Lorem', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quam sint quo unde! Suscipit repudiandae id deleniti! Error harum maiores velit quos minus.'},
-        { iconClass: 'fa-regular fa-life-ring fa-2x', title: 'Lorem', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quam sint quo unde! Suscipit repudiandae id deleniti! Error harum maiores velit quos minus.'},
-        { iconClass: 'fa-solid fa-route fa-2x', title: 'Lorem', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quam sint quo unde! Suscipit repudiandae id deleniti! Error harum maiores velit quos minus.'},
+        { iconClass: 'fa-regular fa-user fa-2x', title: 'Biologia Nutrizionista Dott.ssa Radha Quas', text: 'sulla base delle tue caratteristiche fisiche e del tuo stile di vita effettuo piani specifici basandomi su principi scientifici e percorsi integrati di mental coaching'},
+        { iconClass: 'fa-solid fa-location-dot fa-2x', title: 'Il mio metodo', text: 'la base del mio percorso è l’educazione e la conoscenza del mondo dell’alimentazione e nutrizione, in seguito sulla base di principi scientifici e sulle tue abitudini genero il tuo piano nutrizionale completo'},
+        { iconClass: 'fa-regular fa-life-ring fa-2x', title: 'Specializzazione', text: 'accompagno lo sportivo nelle varie fasi dell’anno lavorando sul piano nutrizionale favorendo cambiamenti della composizione corporea e migliorando la performance'},
+        { iconClass: 'fa-solid fa-route fa-2x', title: 'Negozio integrazione e healty food', text: ' puoi trovare tutto ciò che effettivamente ti occorre per favorire il tuo percorso nutrizionale o la tua performance sportiva'},
     ];
 
     return (
@@ -18,13 +18,12 @@ const Hero = () => {
                         <div className="col-12">
                             <div className="row d-flex flex-column align-items-center text-center mb-5">
                                 <div className="col-3">
-                                    <h2 className="card-section-title">Lorem ipsum dolor sit</h2>
+                                    <h2 className="card-section-title">Cosa Offriamo?</h2>
                                 </div>
                                 <div className="col-6">
                                     <h3 className="card-section-text">
-                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id quaerat praesentium possimus blanditiis
-                                        culpa, alias, modi vel laudantium dignissimos quo consectetur? Ipsum cum, quisquam reiciendis tempore
-                                        asperiores cupiditate vero!
+                                        Affidati a noi per ritrovare i tuo equilibrio psico-fisico attraverso percorsi completi in base alle tue 
+                                        esigenze a partire da una semplice ricerca di benessere fino ad arrivare alla performance sportiva.
                                     </h3>
                                 </div>
                             </div>

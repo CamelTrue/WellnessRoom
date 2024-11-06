@@ -146,6 +146,20 @@ main {
   padding: 2em;
 }
 
+.custom-position {
+  margin-top: 40px;
+  width: 37.5vw;
+}
+
+.custom-large-margin-position {
+  margin-left: 5vw;
+}
+
+.custom-small-margin-position {
+  margin-left: 2.5vw;
+}
+
+
 .infocard-title {
   color: var(--main-color);
   font-size: 40px;

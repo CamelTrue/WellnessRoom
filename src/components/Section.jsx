@@ -18,11 +18,11 @@ const Section = () => {
                 <article className="col-12 col-lg-5">
                     <div className="infocard d-flex flex-column justify-content-center">
                         <h3 className="infocard-title">
-                            Lorem ipsum
+                            Chi sono?
                         </h3>
                         <p className="infocard-text p-0 m-0">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque dolores illo nemo rem quasi? Eos voluptate sed cumque sapiente molestiae necessitatibus.
-                            Eos voluptate sed cumque sapiente molestiae necessitatibus.
+                            Sono la dott.ssa Radha laureata in scienze e tecnologie alimentari e scienze della nutrizione 
+                            umana con iscrizione all’albo dei biologi TRI_A3664.
                         </p>
                     </div>
                 </article>
@@ -63,7 +63,25 @@ const Section = () => {
                         </div>
                         
                     </div>
+                    <article>
+                </article>
                 </aside>
+            </div>
+            <div className="infocard custom-position custom-small-margin-position">
+                <p className="infocard-text p-0 m-0">
+                    La mia carriera da sportiva come 
+                    motociclista mi ha permesso di lavorerà al meglio su me stessa per ottenere prestazioni a livello 
+                    nazionale e mondiale favorendo di conseguenza il mio percorsi di studi. 
+                </p>
+            </div>
+            <div className="infocard custom-position custom-large-margin-position">
+                <p className="infocard-text p-0 m-0">
+                    Grazie al conseguimento 
+                    di diplomi in ambito sportivo sono riuscita a creare il mio programma nutrizionale portando la 
+                    persona a cambiare le sue abitudini in modo graduale e soprattutto trasmettendo la mia 
+                    conoscenza. Qualsiasi inizio parte dall’educazione e questo è quello che cerco di trasmettere ai 
+                    miei clienti.
+                </p>
             </div>
         </section>
     </>
