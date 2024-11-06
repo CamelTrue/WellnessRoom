@@ -45,9 +45,12 @@ const Navbar = () => {
                             <div className="col-12 waves">
                                 <div className="row">
                                     <div className="col-5 titles">
-                                        <h1 data-aos="fade-left" data-aos-delay="0" data-aos-duration="1000">Lorem Ipsum</h1>
-                                        <h2 data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h2>
-                                        <h2 data-aos="fade-left" data-aos-delay="400" data-aos-duration="1000">Animi voluptates nulla ratione veritatis, amet deserunt.</h2>
+                                        <h1 data-aos="fade-left" data-aos-delay="0" data-aos-duration="1000">Wellness Room</h1>
+                                        <h2 className="text-header" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">Nel nostro studio racchiudiamo i tre concetti chiave per stare bene</h2>
+                                        <h2 className="text-header" data-aos="fade-left" data-aos-delay="400" data-aos-duration="1000">
+                                            <b className='bold-text'>mente</b>, <b className='bold-text'>corpo</b> & <b className='bold-text'>cuore</b> 
+                                            <p>per favorire la vostra quotidianità e la performance dello sportivo.</p>
+                                        </h2>
                                         <ContactUs />
                                     </div>
                                 </div>

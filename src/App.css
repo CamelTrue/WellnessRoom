@@ -27,6 +27,10 @@ main {
   background-attachment: fixed;
 }
 
+.text-header {
+  font-size: 22px !important;
+}
+
 .waves {
   position: absolute;
   width: 100vw;
