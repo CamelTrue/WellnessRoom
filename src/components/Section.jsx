@@ -16,7 +16,11 @@ const Section = () => {
             <div className="row">
                 
                 <article className="col-12 col-lg-5">
-                    <div className="infocard d-flex flex-column justify-content-center">
+                    <div 
+                        data-aos-delay="200" 
+                        data-aos="fade-right" 
+                        className="infocard d-flex flex-column justify-content-center"
+                    >
                         <h3 className="infocard-title">
                             Chi sono?
                         </h3>
@@ -67,14 +71,23 @@ const Section = () => {
                 </article>
                 </aside>
             </div>
-            <div className="infocard custom-position custom-small-margin-position">
+            <div 
+                data-aos-delay="400" 
+                data-aos="fade-right" 
+                className="infocard custom-position custom-small-margin-position"
+            >
                 <p className="infocard-text p-0 m-0">
                     La mia carriera da sportiva come 
                     motociclista mi ha permesso di lavorerà al meglio su me stessa per ottenere prestazioni a livello 
                     nazionale e mondiale favorendo di conseguenza il mio percorsi di studi. 
                 </p>
             </div>
-            <div className="infocard custom-position custom-large-margin-position">
+            
+            <div 
+                data-aos-delay="600" 
+                data-aos="fade-right" 
+                className="infocard custom-position custom-large-margin-position"
+            >
                 <p className="infocard-text p-0 m-0">
                     Grazie al conseguimento 
                     di diplomi in ambito sportivo sono riuscita a creare il mio programma nutrizionale portando la 

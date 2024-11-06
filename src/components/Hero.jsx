@@ -30,19 +30,19 @@ const Hero = () => {
 
                             <div className="row pt-5 text-white">
                                 {cards.map((card, index) => (
-                                <article key={index} className="card-skin col-12 col-md-6 col-xl-3 card-containers">
-                                    <div className={`card-skin p-5 card-${index + 1}`}>
-                                        <div className="card-content d-flex flex-column">
-                                            <div className="card-icon pb-4">
-                                                <i className={card.iconClass}></i>
+                                    <article key={index} className="col-12 col-md-6 col-xl-3 d-flex justify-content-center">
+                                        <div className={`card-skin card-${index + 1}`}>
+                                            <div className="card-content">
+                                                <div className="card-icon">
+                                                    <i className={card.iconClass}></i>
+                                                </div>
+                                                <div className="card-title">
+                                                    <h2>{card.title}</h2>
+                                                </div>
+                                                <div className="card-text">{card.text}</div>
                                             </div>
-                                            <div className="card-title border-bottom border-3 border-warning">
-                                                <h2>{card.title}</h2>
-                                            </div>
-                                            <div className="card-text">{card.text}</div>
                                         </div>
-                                    </div>
-                                </article>
+                                    </article>
                                 ))}
                             </div>
                         </div>

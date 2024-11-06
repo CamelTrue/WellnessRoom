@@ -75,10 +75,6 @@ main {
   align-items: center;
 }
 
-.card-skin {
-  border-radius: 18px;
-}
-
 .card-section-title {
   font-size: 50px;
   color: var(--main-color);
@@ -89,10 +85,6 @@ main {
   color: grey;
   font-size: 28px;
   font-weight: 500;
-}
-
-.card-content {
-  padding: 5em 0 2em 0;
 }
 
 .card-title > h2 {
@@ -522,4 +514,68 @@ main {
     font-size: 1rem;
     padding: 10px 20px;
   }
+}
+
+
+
+/* Card custom CSS */
+
+.card-skin {
+  position: relative; 
+  width: 100%;
+  max-width: 300px; 
+  min-height: 350px;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.card-skin:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card-skin::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.15));
+  transform: skewX(-25deg);
+  transition: left 0.7s ease;
+}
+
+.card-skin:hover::before {
+  left: 125%;
+}
+
+.card-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 70px 20px;
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  color: #1566c0;
+}
+
+.card-title h2 {
+  font-size: 1.25rem;
+  text-align: center;
+  color: #ffffff;
+  margin-top: 15px;
+}
+
+.card-text {
+  text-align: center;
+  font-size: 1rem;
+  color: #d4d4d4;
+  margin-top: 15px;
 }
