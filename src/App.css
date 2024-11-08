@@ -1,5 +1,6 @@
 :root {
   --main-color: #1566C0;
+  overflow-x: hidden;
 }
 
 body {
@@ -523,12 +524,16 @@ main {
 .card-skin {
   position: relative; 
   width: 100%;
-  max-width: 300px; 
+  max-width: 350px; 
   min-height: 350px;
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: all 0.3s ease;
+  padding-top: 25px;
+  padding-bottom: 50px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .card-skin:hover {
@@ -578,4 +583,145 @@ main {
   font-size: 1rem;
   color: #d4d4d4;
   margin-top: 15px;
+}
+
+
+
+
+
+
+
+/* Stili per dispositivi piccoli */
+@media (max-width: 768px) {
+  .card-section-title {
+    font-size: 2rem;
+  }
+
+  .card-section-text {
+    font-size: 1rem;
+  }
+
+  .card-title h2 {
+    font-size: 1.5rem;
+  }
+
+  .card-text {
+    font-size: 1rem;
+  }
+
+  .card-skin {
+    width: 90vw;
+  }
+}
+
+/* Stili per dispositivi piccoli */
+@media (max-width: 500px) {
+  .card-section-title {
+      font-size: 2.3rem;
+  }
+
+  .align-small-devices {
+    margin: auto;
+  }
+
+  .card-section-text {
+      font-size: 1.3rem;
+  }
+
+  .card-title h2 {
+      font-size: 1.4rem;
+  }
+
+  .card-text {
+      font-size: 1rem;
+  }
+
+  .card-skin {
+    max-width: 300px;
+  }
+
+  main {
+    margin: auto;
+  }
+}
+
+@media (min-width: 992px) {
+  .card-section-title {
+      font-size: 3rem;
+  }
+
+  .card-section-text {
+      font-size: 1.6rem;
+  }
+
+  .card-title h2 {
+      font-size: 1.6rem;
+  }
+
+  .card-text {
+      font-size: 1.3rem;
+  }
+
+  main {
+    margin: 0 10em;
+  }
+}
+
+@media (max-width: 500px) {
+  .small-title-device {
+    font-size: 50px !important;
+    white-space: nowrap;
+    text-align: center;
+  }
+}
+
+
+/* Dimensioni di base per dispositivi mobili */
+.infocard-title {
+  font-size: 1.5rem; /* Circa 24px */
+}
+
+.infocard-text {
+  font-size: 1rem; /* Circa 16px */
+}
+
+/* Dispositivi medi (tablet, ≥768px) */
+@media (min-width: 768px) {
+  .infocard-title {
+      font-size: 2rem; /* Circa 32px */
+  }
+
+  .infocard-text {
+      font-size: 1.125rem; /* Circa 18px */
+  }
+}
+
+/* Dispositivi grandi (desktop, ≥992px) */
+@media (min-width: 992px) {
+  .infocard-title {
+      font-size: 2.5rem; /* Circa 40px */
+  }
+
+  .infocard-text {
+      font-size: 1.25rem; /* Circa 20px */
+  }
+}
+
+
+
+/* Stili per dispositivi piccoli */
+@media (max-width: 500px) {
+  .icons-section {
+    margin: auto;
+  }
+
+  .icons-maring-small-devices {
+    margin: 0 2.5em;
+  }
+
+  .sm-device {
+    margin: auto;
+    width: 100%;
+    max-width: 300px;
+  }
 }

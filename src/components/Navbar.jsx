@@ -13,6 +13,8 @@ const Navbar = () => {
 
     const [backgroundPosition, setBackgroundPosition] = useState({ x: '50%', y: '50%' });
 
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
     const handleMouseMove = (e) => {
         const { clientX, clientY, currentTarget } = e;
         const { offsetWidth, offsetHeight, offsetLeft, offsetTop } = currentTarget;
@@ -31,8 +33,8 @@ const Navbar = () => {
         <>
             <header 
                 className="container-fluid mb-4"
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
+                onMouseMove={ !isTouchDevice ? handleMouseMove : null }
+                onMouseLeave={ !isTouchDevice ? handleMouseLeave : null }
             >
                 <div className="row">
                     <div 
@@ -45,7 +47,7 @@ const Navbar = () => {
                             <div className="col-12 waves">
                                 <div className="row">
                                     <div className="col-5 titles">
-                                        <h1 data-aos="fade-left" data-aos-delay="0" data-aos-duration="1000">Wellness Room</h1>
+                                        <h1 className="small-title-device" data-aos="fade-left" data-aos-delay="0" data-aos-duration="1000">Wellness Room</h1>
                                         <h2 className="text-header" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">Nel nostro studio racchiudiamo i tre concetti chiave per stare bene</h2>
                                         <h2 className="text-header" data-aos="fade-left" data-aos-delay="400" data-aos-duration="1000">
                                             <b className='bold-text'>mente</b>, <b className='bold-text'>corpo</b> & <b className='bold-text'>cuore</b> 
