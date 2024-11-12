@@ -370,7 +370,7 @@ main {
 .contact-button {
   padding: 15px 30px;
   font-size: 1.2rem;
-  background-color: #ffc107; /* Colore di sfondo giallo */
+  background-color: #1566C0; /* Colore di sfondo giallo */
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -416,7 +416,7 @@ main {
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
-  background-color: #ffc107;
+  background-color: #1566C0;
   color: #fff;
 }
 
@@ -476,7 +476,7 @@ main {
 /* Bottone "Invia" */
 .send-button {
   padding: 10px 20px;
-  background-color: #28a745; /* Verde */
+  background-color: #1566C0; /* Verde */
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -612,6 +612,14 @@ main {
   .card-skin {
     width: 90vw;
   }
+
+  .titles {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 }
 
 /* Stili per dispositivi piccoli */
@@ -667,11 +675,40 @@ main {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 400px) {
   .small-title-device {
-    font-size: 50px !important;
+    font-size: 45px !important;
+    margin-bottom: 35px;
+  }
+}
+
+@media only screen and (min-width: 400px) and (max-width: 500px) {
+  .small-title-device {
+    font-size: 60px !important;
+    margin-bottom: 35px;
+  }
+}
+
+@media (min-width: 501px) {
+  .small-title-device {
+    font-size: 70px !important;
+    margin-bottom: 35px;
+  }
+}
+
+@media (min-width: 751px) {
+  .small-title-device {
+    font-size: 85px !important;
     white-space: nowrap;
-    text-align: center;
+    margin-bottom: 35px;
+  }
+}
+
+@media (min-width: 1120px) {
+  .small-title-device {
+    font-size: 100px !important;
+    white-space: nowrap;
+    margin-bottom: 35px;
   }
 }
 
