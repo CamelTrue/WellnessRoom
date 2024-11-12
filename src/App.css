@@ -153,6 +153,12 @@ main {
 }
 
 
+.flex-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .infocard-title {
   color: var(--main-color);
   font-size: 40px;
@@ -170,6 +176,22 @@ main {
   margin-left: auto;
 }
 
+.infocard-icon-box {
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1em;
+}
+
+.infocard-icon-full-boxes {
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 
 .infocard-icon {
   border-radius: 20px;
@@ -177,6 +199,15 @@ main {
   padding: 2em;
   width: min-content;
   font-weight: normal;
+}
+
+.card-position-box {
+  margin-left: 70px;
+}
+
+.card-position-box-full {
+  margin-top: 30px;
+  margin-left: 140px;
 }
 
 .widget-wrapper {
@@ -585,6 +616,19 @@ main {
   margin-top: 15px;
 }
 
+.alert-success {
+  position: fixed;
+  top: 20px; /* Posiziona l'alert in alto, puoi modificare secondo le tue preferenze */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #28a745; /* Colore verde per il successo */
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  z-index: 1000; /* Assicurati che l'alert sia sopra gli altri elementi */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
 
 
 
@@ -721,6 +765,31 @@ main {
 .infocard-text {
   font-size: 1rem; /* Circa 16px */
 }
+
+
+
+/* custom metrics (phone, ≥500px) */
+@media (max-width: 950px) {
+  .flex-row {
+    flex-direction: column !important;
+  }
+
+  .infocard-icon-full-boxes {
+    margin-left: 0px !important;
+    margin-top: 30px;
+  }
+
+  .infocard-icon-box {
+    margin-top: 30px;
+  }
+}
+@media (max-width: 1200px) {
+  .infocard-icon-full-boxes {
+    margin-left: 50px;
+  }
+}
+
+
 
 /* Dispositivi medi (tablet, ≥768px) */
 @media (min-width: 768px) {
