@@ -16,7 +16,7 @@ const Section = () => {
             <section className="container-fluid pt-5 icons-section">
 
                 <div className="flex-row">
-                    <article className="col-6 infocard-box-main-section">
+                    <article className="col-10 col-lg-6 infocard-box-main-section">
                         <div 
                             data-aos-delay="200" 
                             data-aos="fade-right" 

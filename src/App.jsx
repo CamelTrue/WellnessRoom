@@ -12,7 +12,7 @@ function App() {
       <footer className="row footer d-flex align-items-end">
         <div className="col-12">
           <div className="row footer-container ">
-            <div className="col-5">
+            <div className="col-12 col-sm-5">
               <div className="row">
                 <h3 className="footer-title text-warning">Lorem Ipsum dolor</h3>
                 <p className="footer-text">
@@ -22,10 +22,10 @@ function App() {
                 </p>
               </div>
             </div>
-            <div className="col-3 ps-5 ms-auto">
+            <div className="mt-4 ms-auto">
               <div className="row footer-socials">
                 <h3 className="footer-title text-warning">Social</h3>
-                <div className="d-flex align-items-center">
+                <div className="d-flex align-items-center custom-margin-icon-footer">
                   <a href="#"><i className="fa-brands fa-facebook-f fa-xl m-2"></i></a>
                   <a href="#"><i className="fa-brands fa-instagram fa-xl m-2"></i></a>
                   <a href="#"><i className="fa-brands fa-twitter fa-xl m-2"></i></a>

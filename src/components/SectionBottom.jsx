@@ -18,7 +18,7 @@ const SectionTop = () => {
     }, []);
 
     return (
-        <div className="container-fluid widgets-section d-flex flex-column justify-content-center align-items-center">
+        <div className="container-fluid widgets-section d-flex flex-column justify-content-center align-items-center margin-custom-bottom-section">
 
             <div className="row w-100 d-flex flex-column">
                 
