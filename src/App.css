@@ -19,7 +19,7 @@ main {
 }
 
 .header {
-  width: 100vw;
+  width: 100vw; 
   height: 105vh;
   background: url(./media/header.jpg);
   background-position: center;
@@ -618,15 +618,16 @@ main {
 
 .alert-success {
   position: fixed;
-  top: 20px; /* Posiziona l'alert in alto, puoi modificare secondo le tue preferenze */
+  top: 40px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #28a745; /* Colore verde per il successo */
+  background-color: #227134;
   color: #fff;
-  padding: 1rem 2rem;
   border-radius: 5px;
-  z-index: 1000; /* Assicurati che l'alert sia sopra gli altri elementi */
+  padding: 1rem 3rem;
+  z-index: 1000;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 
 
