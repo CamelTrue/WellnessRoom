@@ -403,7 +403,8 @@ $card-images: (
 
   &-title {
     font-weight: 500;
-    font-size: 36px;
+    font-size: 40px;
+    color: #fff;
 
     @media (max-width: 1600px) {
       font-size: 26px;
@@ -414,10 +415,15 @@ $card-images: (
     }
   }
 
+  &-icon-social {
+    font-size: 18px !important;
+  }
+
   &-text {
-    font-weight: 500;
-    font-size: 20px;
-    color: white;
+    font-weight: 300;
+    letter-spacing: 1px;
+    font-size: 17px;
+    color: #fff;
 
     @media (max-width: 1600px) {
       font-size: 15px;
