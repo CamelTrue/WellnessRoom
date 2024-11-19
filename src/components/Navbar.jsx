@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import ContactUs from './ContactUs';
+import 'aos/dist/aos.css';
+import AOS from 'aos';
 
 const Navbar = () => {
     useEffect(() => {
