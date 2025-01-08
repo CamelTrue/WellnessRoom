@@ -1,14 +1,15 @@
-// ContactUs.jsx
-import React, { useState, useRef, useEffect, useMemo } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import AlertSuccess from './AlertSuccess';
 import emailjs from '@emailjs/browser';
-import AOS from 'aos';
 import 'aos/dist/aos.css';
+import AOS from 'aos';
 
 const ContactUs = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const formRef = useRef(null);
+  const lastScrollY = useRef(window.pageYOffset);
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -39,23 +40,37 @@ const ContactUs = () => {
   };
 
   useEffect(() => {
-    AOS.refresh();
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
   }, []);
 
-  const contactButton = useMemo(
-    () => (
-      <button
-        data-aos="fade-left"
-        data-aos-delay="600"
-        data-aos-duration="1000"
-        className="contact-button"
-        onClick={toggleModal}
-      >
-        Contattami
-      </button>
-    ),
-    [toggleModal]
-  );
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.pageYOffset;
+
+      if (currentScrollY === 0) {
+        // Se sei in cima alla pagina, nascondi la barra
+        setIsVisible(false);
+      } else if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+        // Scroll verso il basso e oltre 100px
+        setIsVisible(false);
+      } else if (currentScrollY < lastScrollY.current) {
+        // Scroll verso l'alto
+        setIsVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Inizializza lo stato in base alla posizione iniziale
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     if (isSuccess) {
@@ -67,8 +82,22 @@ const ContactUs = () => {
   }, [isSuccess]);
 
   return (
-    <div className="contact-us-container">
-      {contactButton}
+    <>
+      {/* Barra ContactUs */}
+      <div className={`contact-us-bar ${isVisible ? 'visible' : 'hidden'}`}>
+        <a href="#" className="logo-container">
+          <img className='logo-nav-item' src='/media/change-logo.png' alt="Logo" />
+        </a>
+        <button
+          data-aos="fade-left"
+          data-aos-delay="600"
+          data-aos-duration="1000"
+          className="contact-button"
+          onClick={toggleModal}
+        >
+          Contattami
+        </button>
+      </div>
 
       {/* Modal */}
       {isModalOpen && (
@@ -132,12 +161,9 @@ const ContactUs = () => {
         </div>
       )}
 
-      {/* <AlertSuccess /> */}
-
-
       {/* AlertSuccess */}
       {isSuccess && <AlertSuccess />}
-    </div>
+    </>
   );
 };
 

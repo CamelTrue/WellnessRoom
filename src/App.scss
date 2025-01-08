@@ -18,10 +18,12 @@ main {
 }
 
 $card-images: (
-  1: '1.png',
-  2: '2.png',
-  3: '3.png',
-  4: '4.png'
+  1: '1.webp',
+  2: '2.webp',
+  3: '3.webp',
+  4: '4.webp',
+  5: '5.webp',
+  6: '6.webp',
 );
 
 
@@ -30,17 +32,55 @@ $card-images: (
 
 
 
+// Cursor Follower
+.cursor-follower {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  border: 4px solid #8fc48c;
+  pointer-events: none; 
+  transform: translate(-50%, -50%); 
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  z-index: 9999; 
+}
+
+.cursor-follower:hover {
+  transform: translate(-50%, -50%) scale(1.2); 
+  background-color: #1566c0; 
+}
+
+
+
 
 .header {
   width: 100vw; 
   height: 105vh;
-  background: url(./media/header.jpg) center no-repeat;
+  background: url(../public/media/Header-main.webp) center no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 
 .text-header {
   font-size: 22px !important;
+}
+
+.fixed-text-header {
+  position: fixed;
+}
+
+.fixed-text-header-top {
+  top: 47vh;
+  left: 4vw;
+}
+
+.fixed-text-header-middle {
+  top: 59vh;
+  left: 5vw;
+}
+
+.fixed-text-header-bottom {
+  top: 63vh;
+  left: 6vw;
 }
 
 .waves {
@@ -51,7 +91,7 @@ $card-images: (
   left: 0;
   background: 
     linear-gradient(black 10%, rgba(0, 0, 0, 0) 80%), 
-    url(./media/wave2.svg); 
+    url(../public/media/wave2.svg); 
   background-position: top 0 left 0, bottom calc(0vh - 8vw) left 0, bottom calc(3vh - 8vw) left 0; 
   background-repeat: no-repeat;
   background-size: 100%;
@@ -107,7 +147,7 @@ $card-images: (
     &-#{$number} {
       background: 
         linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)),
-        url(media/#{$image});
+        url(../public/media/#{$image});
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
@@ -197,6 +237,23 @@ $card-images: (
   margin-top: 10em;
 }
 
+.owner-info-title {
+  font-size: 20px;
+  color: var(--main-color)
+}
+
+
+/* Classe per rendere le immagini circolari */
+.circular-image {
+  width: 400px; /* Imposta la larghezza desiderata */
+  height: 400px; /* Imposta l'altezza desiderata */
+  border-radius: 50%;
+  object-fit: cover; /* Assicura che l'immagine riempia il contenitore senza distorsioni */
+  border: 2px solid #fff; /* Opzionale: aggiungi un bordo bianco per un effetto migliore */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opzionale: aggiungi un'ombra per profondità */
+}
+
+
 .infocard {
   border-radius: 20px;
   box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
@@ -238,15 +295,6 @@ $card-images: (
     width: min-content;
     font-weight: normal;
   }
-}
-
-.card-position-box {
-  margin-left: 70px;
-}
-
-.card-position-box-full {
-  margin-top: 30px;
-  margin-left: 140px;
 }
 
 .widget-wrapper {
@@ -390,7 +438,7 @@ $card-images: (
   width: 100%;
   background: 
     linear-gradient(white 5%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.8) 80%),
-    url(./media/footer.jpg);
+    url(../public/media/footer.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center, bottom;
@@ -450,166 +498,239 @@ $card-images: (
   }
 }
 
-.scroll-to-top-button {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  height: 60px;
-  width: 60px;
-  background-color: #1566C0; // Personalizza come preferisci
-  color: white;
-  border: none;
-  padding: 1rem;
-  cursor: pointer;
-  z-index: 1000;
 
-  // Inizio dell'animazione
-  opacity: 0;
-  transform: translateX(20px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-  border-radius: 50%;
 
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+ 
 
-  &:hover {
-    background-color: #0e4a8e;
-  }
-}
+
+
 
 /* ContactUs.scss */
 
-// Contenitore principale
-.contact-us-container {
+// Variabili per i colori
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$success-color: #28a745;
+$overlay-bg: rgba(0, 0, 0, 1);
+$border-radius: 8px;
+
+// Mixin per centratura
+@mixin center-flex {
   display: flex;
-  margin-top: 50px;
+  justify-content: center;
+  align-items: center;
 }
 
-// Bottone "Contattami"
-.contact-button {
-  padding: 15px 30px;
-  font-size: 1.2rem;
-  background-color: #1566C0; // Colore di sfondo giallo
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  opacity: 0; // Inizialmente invisibile
-  transform: translateX(-20px); // Posizione iniziale
-  transition: opacity 1s ease-out, transform 1s ease-out;
-
-  &.fade-in {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-// Overlay del Modal
-.modal-overlay {
+// Barra ContactUs
+.contact-us-bar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-// Contenuto del Modal
-.modal-content {
-  background-color: #fff;
-  width: 90%;
-  max-width: 500px;
-  border-radius: 8px;
-  overflow: hidden;
-  animation: slide-down 0.5s ease-out;
-}
-
-// Intestazione del Modal
-.modal-header {
+  background-color: $overlay-bg;
+  color: #fff;
+  padding: 15px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
-  background-color: #1566C0;
-  color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  z-index: 1000;
 
-  h2 {
-    margin: 0;
-    font-size: 1.5rem;
+  &.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
   }
 
-  .close-button {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
+  &.visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .logo-container {
+    img {
+      height: 40px;
+      width: auto;
+    }
+  }
+
+  .contact-button {
+    background-color: #28a745; // Verde acqua
     color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
-  }
-}
+    transition: background-color 0.3s ease, transform 0.2s ease;
 
-// Corpo del Modal
-.modal-body {
-  padding: 20px;
-}
-
-// Gruppo di form
-.form-group {
-  margin-bottom: 15px;
-
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-
-  input,
-  textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    &.input-style {
-      background-color: #fff !important;
-      color: #000;
+    &:hover {
+      background-color: darken(#28a745, 10%);
+      transform: scale(1.05);
     }
   }
 }
 
-// Azioni del form
-.form-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
+// Modal Overlay
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $overlay-bg;
+  @include center-flex;
+  z-index: 1001;
+  animation: fadeIn 0.3s ease;
+}
 
-  .send-button {
-    padding: 10px 20px;
-    background-color: #1566C0; // Verde
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+// Modal Content
+.modal-content {
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: $border-radius;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.3s ease;
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+
+    h2 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .close-button {
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: $secondary-color;
+
+      &:hover {
+        color: darken($secondary-color, 10%);
+      }
+    }
   }
 
-  .cancel-button {
-    padding: 10px 20px;
-    background-color: #dc3545; // Rosso
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  .modal-body {
+    form {
+      .form-group {
+        margin-bottom: 15px;
+
+        label {
+          display: block;
+          margin-bottom: 5px;
+          font-weight: bold;
+        }
+
+        .input-style {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          transition: border-color 0.3s ease;
+
+          &:focus {
+            border-color: $primary-color;
+            outline: none;
+          }
+        }
+      }
+
+      .form-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+
+        .send-button {
+          background-color: $primary-color;
+          color: #fff;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: darken($primary-color, 10%);
+          }
+        }
+
+        .cancel-button {
+          background-color: $secondary-color;
+          color: #fff;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: darken($secondary-color, 10%);
+          }
+        }
+      }
+    }
   }
 }
+
+// Animazioni
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+
+
+/* AlertSuccess.scss */
+.alert-success {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #28a745; // Verde di successo
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  z-index: 1002;
+  opacity: 0.9;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  &.fade-out {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+
+
+
+
+
+
+
+
 
 // Animazione per il contenuto del modal
 @keyframes slide-down {
@@ -875,28 +996,63 @@ $card-images: (
   align-items: center;
 }
 
-.infocard-icon-full-boxes {
-  max-width: 360px;
+
+
+
+
+
+
+/* global.scss */
+
+/* =========================
+   Personalizzazione Scrollbar
+   ========================= */
+
+/* Variabili per i colori e le dimensioni della scrollbar */
+$scrollbar-width: 8px;
+$scrollbar-thumb-color: rgba(0, 0, 0, 0.5);
+$scrollbar-thumb-hover-color: rgba(0, 0, 0, 0.7);
+$scrollbar-track-color: transparent;
+
+/* -------------------------
+   Personalizzazione per WebKit (Chrome, Safari, Edge)
+   ------------------------- */
+::-webkit-scrollbar {
+  width: $scrollbar-width;
+  height: $scrollbar-width;
 }
 
-/* custom metrics (phone, ≥500px) */
-@media (max-width: 950px) {
-  .flex-row {
-    flex-direction: column !important;
-  }
-
-  .infocard-icon-full-boxes {
-    margin-left: 0px !important;
-    margin-top: 30px;
-  }
-
-  .infocard-icon-box {
-    margin-top: 30px;
-  }
+::-webkit-scrollbar-track {
+  background: $scrollbar-track-color;
 }
 
-@media (max-width: 1200px) {
-  .infocard-icon-full-boxes {
-    margin-left: 50px;
-  }
+::-webkit-scrollbar-thumb {
+  background-color: $scrollbar-thumb-color;
+  border-radius: $scrollbar-width;
+  border: 2px solid $scrollbar-track-color; /* Crea uno spazio attorno al thumb */
+  opacity: 0; /* Nasconde la scrollbar di default */
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: $scrollbar-thumb-hover-color;
+  opacity: 1; /* Mostra la scrollbar al passaggio del mouse */
+}
+
+/* Mostra la scrollbar quando si passa il mouse sul body */
+body:hover::-webkit-scrollbar-thumb {
+  opacity: 1;
+}
+
+/* -------------------------
+   Personalizzazione per Firefox
+   ------------------------- */
+body {
+  scrollbar-width: thin; /* Opzioni: auto, thin, none */
+  scrollbar-color: $scrollbar-thumb-color $scrollbar-track-color;
+  transition: scrollbar-color 0.3s ease;
+}
+
+body:hover {
+  scrollbar-color: $scrollbar-thumb-hover-color $scrollbar-track-color;
 }
