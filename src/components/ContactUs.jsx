@@ -17,7 +17,6 @@ const ContactUs = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
-
     emailjs
       .sendForm(
         'service_70l4qtt',
@@ -28,9 +27,9 @@ const ContactUs = () => {
       .then(
         (result) => {
           console.log('SUCCESS!', result.text);
-          formRef.current.reset(); // Resetta il form
-          toggleModal(); // Chiude il modal
-          setIsSuccess(true); // Mostra l'alert di successo
+          formRef.current.reset();
+          toggleModal();
+          setIsSuccess(true);
         },
         (error) => {
           console.log('FAILED...', error.text);
@@ -49,28 +48,30 @@ const ContactUs = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.pageYOffset;
-
       if (currentScrollY === 0) {
-        // Se sei in cima alla pagina, nascondi la barra
         setIsVisible(false);
       } else if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
-        // Scroll verso il basso e oltre 100px
         setIsVisible(false);
       } else if (currentScrollY < lastScrollY.current) {
-        // Scroll verso l'alto
         setIsVisible(true);
       }
-
       lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener('scroll', handleScroll);
-
-    // Inizializza lo stato in base alla posizione iniziale
-    handleScroll();
+    handleScroll(); // Inizializza lo stato in base alla posizione iniziale
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Blocca lo scroll quando il modal è aperto
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflowY = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isModalOpen]);
 
   useEffect(() => {
     if (isSuccess) {
