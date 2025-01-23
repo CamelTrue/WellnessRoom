@@ -14,7 +14,7 @@ body {
 }
 
 main {
-  margin: 0 5em;
+  margin: 0;
 }
 
 $card-images: (
@@ -131,13 +131,13 @@ $card-images: (
 .card-section {
   &-title {
     font-size: 50px;
-    color: var(--main-color);
+    color: #68c862;
   }
 
   &-text {
     font-family: inherit;
     color: grey;
-    font-size: 28px;
+    font-size: 20px !important;
     font-weight: 500;
   }
 }
@@ -246,7 +246,7 @@ $card-images: (
   padding: 2em;
 
   &-title {
-    color: var(--main-color);
+    color: #68c862;
     font-size: 40px;
     padding-bottom: 10px;
     font-weight: 500;
@@ -543,7 +543,7 @@ $border-radius: 8px;
   }
 
   .contact-button {
-    background-color: #28a745; // Verde acqua
+    background-color: #76b073; // Verde acqua
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -782,7 +782,7 @@ $border-radius: 8px;
 
 .card-icon {
   font-size: 1.3rem;
-  color: #1566c0;
+  color: #91c68e;
   margin-top: 20px;
 }
 
@@ -934,6 +934,10 @@ $border-radius: 8px;
   }
 }
 
+.small-title-device {
+  color: #7ece7a !important;
+}
+
 @media (max-width: 400px) {
   .small-title-device {
     font-size: 45px !important;
@@ -977,9 +981,16 @@ $border-radius: 8px;
   align-items: center;
 }
 
+.card-responsive-hero {
+  margin: 6px;
+}
 
-
-
+@media (max-width: 991px) {
+  .card-responsive-hero {
+    margin: 20px;
+    width: 70vw;
+  }
+}
 
 
 
