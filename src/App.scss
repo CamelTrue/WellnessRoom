@@ -158,7 +158,8 @@ $card-images: (
   }
 
   &-skin {
-    
+    min-height: 500px;
+
     &:hover {
       transform: translateY(-10px);
       box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
@@ -789,14 +790,15 @@ $border-radius: 8px;
 .card-content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
 .card-icon {
   font-size: 1.3rem;
   color: #91c68e;
-  margin-top: 20px;
+  margin-top: 30px;
+  margin-bottom: 60px !important;
 }
 
 .card-title {
