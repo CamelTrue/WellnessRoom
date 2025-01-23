@@ -34,7 +34,7 @@ const Hero = () => {
 
                             <div className="row pt-4 text-white justify-content-center">
                                 {cards.map((card, index) => (
-                                    <div key={index} className="col-sm-12 col-lg-6 col-xl-4 col-xxl-3 d-flex justify-content-center">
+                                    <div key={index} className="col-sm-8 col-lg-6 col-xl-4 col-xxl-3 d-flex justify-content-center">
                                         <Card
                                             iconClass={card.iconClass}
                                             title={card.title}

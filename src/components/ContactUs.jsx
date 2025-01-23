@@ -6,13 +6,25 @@ import AOS from 'aos';
 
 const ContactUs = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+
   const formRef = useRef(null);
   const lastScrollY = useRef(window.pageYOffset);
 
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
+  // Apri modal
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  // Chiudi modal con animazione
+  const closeModal = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsModalOpen(false);
+      setIsClosing(false);
+    }, 400); // deve combaciare con la durata di fadeOutScale/fadeOutOverlay
   };
 
   const sendEmail = (e) => {
@@ -26,23 +38,19 @@ const ContactUs = () => {
       )
       .then(
         (result) => {
-          console.log('SUCCESS!', result.text);
           formRef.current.reset();
-          toggleModal();
+          closeModal(); 
           setIsSuccess(true);
         },
         (error) => {
-          console.log('FAILED...', error.text);
           alert("C'è stato un errore nell'invio del messaggio.");
         }
       );
   };
 
+  // Resto della logica AOS e scroll hide/show...
   useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
+    AOS.init({ duration: 1000, once: true });
   }, []);
 
   useEffect(() => {
@@ -57,20 +65,13 @@ const ContactUs = () => {
       }
       lastScrollY.current = currentScrollY;
     };
-
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Inizializza lo stato in base alla posizione iniziale
-
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Blocca lo scroll quando il modal è aperto
   useEffect(() => {
-    if (isModalOpen) {
-      document.body.style.overflowY = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
+    document.body.style.overflowY = isModalOpen ? 'hidden' : 'auto';
   }, [isModalOpen]);
 
   useEffect(() => {
@@ -89,21 +90,24 @@ const ContactUs = () => {
         <a href="#" className="logo-container">
           <img className='logo-nav-item' src='/media/change-logo.png' alt="Logo" />
         </a>
-        <button className="contact-button" onClick={toggleModal}>
+        <button className="contact-button" onClick={openModal}>
           Contattami
         </button>
       </div>
 
       {/* Modal */}
       {isModalOpen && (
-        <div className="modal-overlay" onClick={toggleModal}>
+        <div
+          className={`modal-overlay ${isClosing ? 'fade-out-overlay' : ''}`}
+          onClick={closeModal}
+        >
           <div
-            className="modal-content"
+            className={`modal-content ${isClosing ? 'fadeOutScale' : ''}`}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="modal-header">
               <h2>Contattaci</h2>
-              <button className="close-button" onClick={toggleModal}>
+              <button className="close-button" onClick={closeModal}>
                 &times;
               </button>
             </div>
@@ -112,29 +116,32 @@ const ContactUs = () => {
                 <div className="form-group">
                   <label htmlFor="user_name">Nome</label>
                   <input
-                    className="input-style"
+                    className="input-style pointer"
                     type="text"
                     id="user_name"
                     name="user_name"
+                    placeholder='Inserisci il tuo nome..'
                     required
                   />
                 </div>
                 <div className="form-group">
                   <label htmlFor="user_email">Email</label>
                   <input
-                    className="input-style"
+                    className="input-style pointer"
                     type="email"
                     id="user_email"
                     name="user_email"
+                    placeholder='Inserisci la tua email..'
                     required
                   />
                 </div>
                 <div className="form-group">
                   <label htmlFor="message">Messaggio</label>
                   <textarea
-                    className="input-style"
+                    className="input-style pointer"
                     id="message"
                     name="message"
+                    placeholder='Comunicaci la tua richiesta..'
                     required
                   ></textarea>
                 </div>
@@ -145,7 +152,7 @@ const ContactUs = () => {
                   <button
                     type="button"
                     className="cancel-button"
-                    onClick={toggleModal}
+                    onClick={closeModal}
                   >
                     Annulla
                   </button>

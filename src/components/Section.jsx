@@ -4,8 +4,7 @@ import 'aos/dist/aos.css';
     
 const sectionsData = [
     {
-        title: "Chi siamo?",
-        mainText: ( <> Sono la <span className="owner-info-title">dott.ssa Radha</span> laureata in scienze e tecnologie alimentari e scienze della nutrizione  umana con iscrizione all’albo dei biologi TRI_A3664. </> ),
+        mainText: ( <> Sono la <span className="owner-info-title">Dott.ssa Radha</span> laureata in scienze e tecnologie alimentari e scienze della nutrizione  umana con iscrizione all’albo dei biologi TRI_A3664. </> ),
         subTexts: [ "La mia carriera da sportiva professionista come motociclista mi ha permesso di lavorare al meglio su me stessa per ottenere prestazioni a livello nazionale e mondiale favorendo di conseguenza il mio percorso di studi.", "Grazie al conseguimento di diplomi in ambito sportivo e mental coach sono riuscita a creare un programma personalizzato portando la persona a cambiare le sue abitudini in modo graduale e soprattutto trasmettendo la mia conoscenza. Qualsiasi inizio parte dall’educazione e questo è quello che cerco di trasmettere ai miei clienti."],
         image: "public/media/Radha.webp"
     },
@@ -24,138 +23,123 @@ const sectionsData = [
 const Section = () => {
 
     useEffect(() => {
-        AOS.init({
-            duration: 1000, 
-            once: true,
-        });
-        
-        const onLoad = () => {
-            AOS.refresh(); 
-        };
-        window.addEventListener("load", onLoad);
-      
-        return () => {
-            window.removeEventListener("load", onLoad);
-        };
+      AOS.init({ duration: 1000, once: true });
+      const onLoad = () => AOS.refresh();
+      window.addEventListener("load", onLoad);
+      return () => window.removeEventListener("load", onLoad);
     }, []);
-    
+  
     return (
-        <>
-            {sectionsData.map((section, index) => {
-                const isInverted = index === 1;
-
-                return (
-                    <section key={index} className="container-fluid pt-5 icons-section">
-                        <div className="row align-items-center">
-                            {isInverted ? (
-                                <>
-                                    {/* Immagine */}
-                                    <div className="col-12 col-lg-6">
-                                        <div 
-                                            data-aos="fade-up"
-                                            data-aos-delay="200" 
-                                            data-aos-anchor-placement="top-bottom"
-                                            className="d-flex justify-content-center"
-                                        >
-                                            <img 
-                                                src={section.image} 
-                                                alt={section.title ? section.title : `Immagine ${index + 1}`} 
-                                                className="img-fluid circular-image"
-                                            />
-                                        </div>
-                                    </div>
-                                    {/* Testo */}
-                                    <div className="col-12 col-lg-6 mt-4 mt-lg-0">
-                                        {section.title && (
-                                            <h3 className="infocard-title mb-5">
-                                                {section.title}
-                                            </h3>
-                                        )}
-                                        <div 
-                                            data-aos="fade-up"
-                                            data-aos-delay="200" 
-                                            data-aos-anchor-placement="top-bottom"
-                                            className="infocard h-100 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start"
-                                        >
-                                            <p className="infocard-text p-0 m-0">
-                                                {section.mainText}
-                                            </p>
-                                        </div>
-                                        {/* Sottotesti */}
-                                        {section.subTexts.map((text, subIndex) => (
-                                            <div key={subIndex} className="mt-4">
-                                                <div 
-                                                    data-aos-delay={200 + (subIndex + 1) * 200} 
-                                                    data-aos="fade-up"
-                                                    data-aos-anchor-placement="top-bottom"
-                                                    className="infocard sm-device"
-                                                >
-                                                    <p className="infocard-text p-0 m-0 text-center text-lg-start">
-                                                        {text}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </>
-                            ) : (
-                                <>
-                                    {/* Testo */}
-                                    <div className="col-12 col-lg-6">
-                                        {section.title && (
-                                            <h3 className="infocard-title mb-5">
-                                                {section.title}
-                                            </h3>
-                                        )}
-                                        <div 
-                                            data-aos="fade-up"
-                                            data-aos-delay="200" 
-                                            data-aos-anchor-placement="top-bottom"
-                                            className="infocard h-100 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start"
-                                        >
-                                            <p className="infocard-text p-0 m-0">
-                                                {section.mainText}
-                                            </p>
-                                        </div>
-                                        {/* Sottotesti */}
-                                        {section.subTexts.map((text, subIndex) => (
-                                            <div key={subIndex} className="mt-4">
-                                                <div 
-                                                    data-aos-delay={200 + (subIndex + 1) * 200} 
-                                                    data-aos="fade-up"
-                                                    data-aos-anchor-placement="top-bottom"
-                                                    className="infocard sm-device"
-                                                >
-                                                    <p className="infocard-text p-0 m-0 text-center text-lg-start">
-                                                        {text}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                    {/* Immagine */}
-                                    <div className="col-12 col-lg-6 mt-4 mt-lg-0">
-                                        <div 
-                                            data-aos="fade-up"
-                                            data-aos-delay="200" 
-                                            data-aos-anchor-placement="top-bottom"
-                                            className="d-flex justify-content-center"
-                                        >
-                                            <img 
-                                                src={section.image} 
-                                                alt={section.title ? section.title : `Immagine ${index + 1}`} 
-                                                className="img-fluid circular-image"
-                                            />
-                                        </div>
-                                    </div>
-                                </>
-                            )}
+      <>
+        {/* TITOLO PRIMA DELLA MAPPATURA */}
+        <h2 className="text-center infocard-title">Chi siamo?</h2>
+  
+        {sectionsData.map((section, index) => {
+          const isInverted = index === 1;
+  
+          return (
+            <section key={index} className="container-fluid icons-section">
+              <div className="row align-items-center mb-5 mt-5">
+                {isInverted ? (
+                  <>
+                    {/* Colonna immagine */}
+                    <div className="col-12 col-lg-6">
+                      <div 
+                        data-aos="fade-up"
+                        data-aos-delay="200" 
+                        data-aos-anchor-placement="top-bottom"
+                        className="d-flex justify-content-center"
+                      >
+                        <img 
+                          src={section.image} 
+                          alt={`Immagine ${index + 1}`} 
+                          className="img-fluid circular-image pointer"
+                        />
+                      </div>
+                    </div>
+                    {/* Colonna testo */}
+                    <div className="col-12 col-lg-6 mt-4 mt-lg-0">
+                      {/* Qui NON usiamo più section.title */}
+                      <div 
+                        data-aos="fade-up"
+                        data-aos-delay="200" 
+                        data-aos-anchor-placement="top-bottom"
+                        className="infocard h-100 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start"
+                      >
+                        <p className="infocard-text p-0 m-0">
+                          {section.mainText}
+                        </p>
+                      </div>
+                      {section.subTexts.map((text, subIndex) => (
+                        <div key={subIndex} className="mt-4">
+                          <div 
+                            data-aos-delay={200 + (subIndex + 1) * 200} 
+                            data-aos="fade-up"
+                            data-aos-anchor-placement="top-bottom"
+                            className="infocard sm-device"
+                          >
+                            <p className="infocard-text p-0 m-0 text-center text-lg-start">
+                              {text}
+                            </p>
+                          </div>
                         </div>
-                    </section>
-                );
-            })}
-        </>
-    )
-}
-
-export default Section;
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    {/* Colonna testo */}
+                    <div className="col-12 col-lg-6">
+                      {/* Anche qui rimosso check di section.title */}
+                      <div 
+                        data-aos="fade-up"
+                        data-aos-delay="200" 
+                        data-aos-anchor-placement="top-bottom"
+                        className="infocard h-100 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start"
+                      >
+                        <p className="infocard-text p-0 m-0">
+                          {section.mainText}
+                        </p>
+                      </div>
+                      {section.subTexts.map((text, subIndex) => (
+                        <div key={subIndex} className="mt-4">
+                          <div 
+                            data-aos-delay={200 + (subIndex + 1) * 200} 
+                            data-aos="fade-up"
+                            data-aos-anchor-placement="top-bottom"
+                            className="infocard sm-device"
+                          >
+                            <p className="infocard-text p-0 m-0 text-center text-lg-start">
+                              {text}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    {/* Colonna immagine */}
+                    <div className="col-12 col-lg-6 mt-4 mt-lg-0">
+                      <div 
+                        data-aos="fade-up"
+                        data-aos-delay="200" 
+                        data-aos-anchor-placement="top-bottom"
+                        className="d-flex justify-content-center"
+                      >
+                        <img 
+                          src={section.image} 
+                          alt={`Immagine ${index + 1}`} 
+                          className="img-fluid circular-image pointer"
+                        />
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+            </section>
+          );
+        })}
+      </>
+    );
+  };
+  
+  export default Section;
+  

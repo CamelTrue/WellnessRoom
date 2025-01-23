@@ -3,9 +3,9 @@ import React from 'react';
 const Card = ({ iconClass, title, text, cardNumber }) => {
     return (
         <article className="d-flex justify-content-center card-responsive-hero">
-            <div className={`card-skin card-${cardNumber}`}>
+            <div className={`card-skin pointer card-${cardNumber}`}>
                 <div className="card-content p-3">
-                    <div className="card-icon mb-2">
+                    <div className="card-icon mb-2 cursor">
                         <i className={iconClass}></i>
                     </div>
                     <div className="card-title">
