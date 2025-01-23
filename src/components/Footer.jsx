@@ -26,6 +26,26 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
+                    <div className="col-12 col-sm-3 mt-4">
+                        <div className="row footer-policies">
+                            <h3 className="footer-title">Link utili</h3>
+                            <ul className="list-unstyled">
+                                <li>
+                                    {/* Iubenda */}
+                                    <a
+                                        href="https://www.iubenda.com/privacy-policy/12345678" // test layuot iubenda
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Privacy & Cookie Policy
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">Termini e Condizioni</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </footer>
