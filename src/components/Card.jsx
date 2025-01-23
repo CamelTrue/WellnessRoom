@@ -2,7 +2,7 @@ import React from 'react';
 
 const Card = ({ iconClass, title, text, cardNumber }) => {
     return (
-        <article className="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center mb-4">
+        <article className="d-flex justify-content-center mb-4">
             <div className={`card-skin card-${cardNumber}`}>
                 <div className="card-content p-3">
                     <div className="card-icon mb-2">

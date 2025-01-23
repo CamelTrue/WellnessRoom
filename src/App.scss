@@ -160,16 +160,7 @@ $card-images: (
   }
 
   &-skin {
-    position: relative; 
-    width: 100%;
-    min-width: 280px !important; 
-    max-height: 480px !important;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: all 0.3s ease;
-    padding: 25px 5px 20px 5px;
-
+    
     &:hover {
       transform: translateY(-10px);
       box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
@@ -210,7 +201,6 @@ $card-images: (
   .card-skin {
     width: 100%;
     min-width: 280px !important; 
-    max-height: 480px !important;
   }
 }
 
@@ -226,10 +216,6 @@ $card-images: (
       font-size: 13px !important;
       padding: 0.5em 0.5em 1em 0.5em !important;
     }
-  }
-
-  .card-skin {
-    width: 300px !important; 
   }
 }
 
@@ -760,14 +746,10 @@ $border-radius: 8px;
 
 .card-skin {
   position: relative; 
-  width: 100%;
-  max-width: 350px; 
-  min-height: 350px;
-  border-radius: 15px;
+  border-radius: 35px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: all 0.3s ease;
-  padding: 25px 5px 50px;
 
   &:hover {
     transform: translateY(-10px);
@@ -792,17 +774,16 @@ $border-radius: 8px;
 }
 
 .card-content {
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 70px 20px;
 }
 
 .card-icon {
-  font-size: 2.5rem;
+  font-size: 1.3rem;
   color: #1566c0;
+  margin-top: 20px;
 }
 
 .card-title {
