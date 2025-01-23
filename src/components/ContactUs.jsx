@@ -49,7 +49,7 @@ const ContactUs = () => {
     const handleScroll = () => {
       const currentScrollY = window.pageYOffset;
       if (currentScrollY === 0) {
-        setIsVisible(false);
+        setIsVisible(true);
       } else if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
         setIsVisible(false);
       } else if (currentScrollY < lastScrollY.current) {

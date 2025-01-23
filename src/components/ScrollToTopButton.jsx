@@ -85,6 +85,18 @@ const ScrollToTopButton = () => {
 
     return (
         <>
+            <div>
+                {isVisible && (
+                    <button
+                        className={`scroll-to-top-button ${isAuto ? 'auto' : ''}`}
+                        onClick={scrollToTop}
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                    >
+                        <i className="fas fa-arrow-up"></i>
+                    </button>
+                )}
+            </div>
         </>
     );
 };

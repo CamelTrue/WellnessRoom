@@ -514,13 +514,12 @@ $border-radius: 8px;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: $overlay-bg;
+  background-color: rgba(0, 0, 0, 0);
   color: #fff;
   padding: 15px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
   z-index: 1000;
 
@@ -564,22 +563,13 @@ $border-radius: 8px;
   left: 0;
   right: 0;
   bottom: 0;
-
-  // Per permettere di vedere sotto, ma con un overlay semi-trasparente
   background-color: rgba(0, 0, 0, 0.3);
-
-  // Aggiungi il blur
   backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px); // Per Safari
-
-  // Centra il contenuto del modal
+  -webkit-backdrop-filter: blur(5px); // Safari OK? Remove this line
   display: flex;
   justify-content: center;
   align-items: center;
-
-  // Se usi center-flex come mixin, puoi anche aggiungere backdrop qui:
   @include center-flex;
-
   z-index: 1001;
   animation: fadeIn 0.3s ease;
 }
@@ -702,13 +692,40 @@ $border-radius: 8px;
 }
 
 
+.scroll-to-top-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  height: 50px;
+  width: 50px;
+  
+  border-radius: 50%;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken(#007bff, 10%);
+  }
+}
+
 
 /* AlertSuccess.scss */
 .alert-success {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #28a745; // Verde di successo
+  background-color: #48bb63; // Verde di successo
   color: #fff;
   padding: 15px 20px;
   border-radius: 5px;
