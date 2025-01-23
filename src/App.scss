@@ -224,7 +224,7 @@ $card-images: (
 
 .owner-info-title {
   font-size: 20px;
-  color: var(--main-color)
+  color: #59a155;
 }
 
 
@@ -513,7 +513,7 @@ $border-radius: 8px;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   background-color: rgba(0, 0, 0, 0);
   color: #fff;
   padding: 15px 20px;
@@ -693,10 +693,6 @@ $border-radius: 8px;
 
 
 .scroll-to-top-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   position: fixed;
   bottom: 20px;
   right: 20px;

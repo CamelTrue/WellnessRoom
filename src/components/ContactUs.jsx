@@ -89,13 +89,7 @@ const ContactUs = () => {
         <a href="#" className="logo-container">
           <img className='logo-nav-item' src='/media/change-logo.png' alt="Logo" />
         </a>
-        <button
-          data-aos="fade-left"
-          data-aos-delay="600"
-          data-aos-duration="1000"
-          className="contact-button"
-          onClick={toggleModal}
-        >
+        <button className="contact-button" onClick={toggleModal}>
           Contattami
         </button>
       </div>

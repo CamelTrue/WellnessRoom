@@ -23,7 +23,12 @@ const SectionTop = () => {
             <div className="row w-100 d-flex flex-column">
                 
                 {/* Prima sezione */}
-                <div data-aos="fade-right" className="col-12 col-lg-5">
+                <div 
+                    data-aos="fade-up"
+                    data-aos-delay="200" 
+                    data-aos-anchor-placement="top-bottom" 
+                    className="col-12 col-lg-5"
+                >
                     <div className="row">
                         {widgetData.slice(0, 2).map((widget, index) => (
                         <div className="col-12 col-lg-6" key={index}>
@@ -42,7 +47,12 @@ const SectionTop = () => {
                 </div>
 
                 {/* Seconda sezione */}
-                <div data-aos="fade-right" className="col-12 pt-4 col-lg-8 d-flex justify-content-end">
+                <div 
+                    data-aos="fade-up"
+                    data-aos-delay="200" 
+                    data-aos-anchor-placement="top-bottom"
+                    className="col-12 pt-4 col-lg-8 d-flex justify-content-end"
+                >
                     <div className="row w-100">
                         <div className="col-lg-1 d-none d-md-block"></div>
                         {widgetData.slice(2).map((widget, index) => (
@@ -62,6 +72,7 @@ const SectionTop = () => {
                 </div>
             </div>
         </div>
-)};
+    );
+};
 
 export default SectionTop;

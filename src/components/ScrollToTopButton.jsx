@@ -7,7 +7,7 @@ const ScrollToTopButton = () => {
     const autoToggleInterval = useRef(null);
 
     const scrollToTop = () => {
-        window.scrollTo({
+            window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
@@ -15,41 +15,34 @@ const ScrollToTopButton = () => {
 
     const handleScroll = () => {
         const scrollTop = window.scrollY || document.documentElement.scrollTop;
-        const windowHeight = window.innerHeight;
-        const documentHeight = document.documentElement.scrollHeight;
-
-        const isAtBottom = windowHeight + scrollTop >= documentHeight - 1;
-
+        
+        // Se vuoi SEMPRE mostrare il bottone tranne in cima:
         if (scrollTop === 0) {
             setIsVisible(false);
-        } else if (scrollTop > 0 && !isAtBottom) {
-            setIsVisible(true);
         } else {
-            setIsVisible(false);
+            setIsVisible(true);
         }
     };
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
-
-        handleScroll(); // Inizializza lo stato in base alla posizione iniziale
+        handleScroll(); // Inizializza lo stato in base allo scroll corrente
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
 
+    // Gestione toggle automatico "auto" ogni 2 secondi
     useEffect(() => {
-        // Avvia il toggle automatico se il bottone è visibile e non è interattivo
         if (isVisible && !isInteractive.current) {
+        // Avvia toggle automatico
             setIsAuto(true);
             autoToggleInterval.current = setInterval(() => {
                 setIsAuto(prev => !prev);
-            }, 2000); // Toggle ogni 2 secondi
-        }
-
-        // Pulisci l'intervallo se il bottone non è visibile o se è interattivo
-        if (!isVisible || isInteractive.current) {
+            }, 2000);
+        } else {
+        // Stop
             setIsAuto(false);
             if (autoToggleInterval.current) {
                 clearInterval(autoToggleInterval.current);
@@ -85,18 +78,16 @@ const ScrollToTopButton = () => {
 
     return (
         <>
-            <div>
-                {isVisible && (
-                    <button
-                        className={`scroll-to-top-button ${isAuto ? 'auto' : ''}`}
-                        onClick={scrollToTop}
-                        onMouseEnter={handleMouseEnter}
-                        onMouseLeave={handleMouseLeave}
-                    >
-                        <i className="fas fa-arrow-up"></i>
-                    </button>
-                )}
-            </div>
+            {isVisible && (
+                <button
+                    className={`scroll-to-top-button ${isAuto ? 'auto' : ''}`}
+                    onClick={scrollToTop}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                >
+                    <i className="fas fa-arrow-up"></i>
+                </button>
+            )}
         </>
     );
 };

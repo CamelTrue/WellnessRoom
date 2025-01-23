@@ -86,25 +86,28 @@ const Navbar = () => {
                                     <div className="col-5 titles">
                                         <h1
                                             className="small-title-device"
-                                            data-aos="fade-left"
+                                            data-aos="fade-up"
                                             data-aos-delay="0"
                                             data-aos-duration="1000"
+                                            data-aos-anchor-placement="top-center"
                                         >
                                             Wellness Room
                                         </h1>
                                         <h2
                                             className="text-header"
-                                            data-aos="fade-left"
-                                            data-aos-delay="200"
+                                            data-aos="fade-up"
+                                            data-aos-delay="300"
                                             data-aos-duration="1000"
+                                            data-aos-anchor-placement="top-center"
                                         >
                                             Nel nostro studio racchiudiamo i tre concetti chiave per stare bene
                                         </h2>
                                         <h2
                                             className="text-header"
-                                            data-aos="fade-left"
-                                            data-aos-delay="400"
+                                            data-aos="fade-up"
+                                            data-aos-delay="600"
                                             data-aos-duration="1000"
+                                            data-aos-anchor-placement="top-bottom"
                                         >
                                             <b className="bold-text">mente</b>, <b className="bold-text">corpo</b> &{' '}
                                             <b className="bold-text">cuore</b>

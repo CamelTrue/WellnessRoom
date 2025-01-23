@@ -22,7 +22,12 @@ const SectionTop = () => {
 
             <div className="row w-100 d-flex flex-column">
                 
-                <div data-aos="fade-left" className="col-12 col-lg-5">
+                <div 
+                    data-aos="fade-up"
+                    data-aos-delay="200" 
+                    data-aos-anchor-placement="top-bottom" 
+                    className="col-12 col-lg-5"
+                >
                     <div className="row">
                         {widgetData.slice(0, 2).map((widget, index) => (
                         <div className="col-12 col-lg-6" key={index}>
@@ -42,7 +47,12 @@ const SectionTop = () => {
 
                 <div className="col-12 pt-4 col-lg-8 d-flex justify-content-end">
                     
-                    <div data-aos="fade-left" className="row w-100">
+                    <div 
+                        data-aos="fade-up"
+                        data-aos-delay="200" 
+                        data-aos-anchor-placement="top-bottom" 
+                        className="row w-100"
+                    >
                         <div className="col-lg-1 d-none d-md-block"></div>
                         {widgetData.slice(2).map((widget, index) => (
                             <div className="col-12 col-lg-5" key={index}>
