@@ -3,7 +3,6 @@ import React, { useState, useEffect, useRef } from 'react';
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Aggiungiamo stati per animazione di entrata/uscita
   const [isMounted, setIsMounted] = useState(false);
   const [isFadingOut, setIsFadingOut] = useState(false);
 
@@ -21,28 +20,23 @@ const ScrollToTopButton = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      // Mostra il bottone se scrollTop > 0
       setIsVisible(scrollTop > 0);
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Inizializza lo stato
+    handleScroll();
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
-  // Gestione del mount/unmount con fade-in / fade-out
   useEffect(() => {
     if (isVisible) {
-      // Se diventa visibile, "montiamo" il bottone
       setIsMounted(true);
       setIsFadingOut(false);
     } else {
-      // Se diventa non visibile, e il bottone è montato, avvia fade-out
       if (isMounted) {
         setIsFadingOut(true);
-        // Dopo X ms (durata dell'animazione), rimuoviamo il bottone dal DOM
         setTimeout(() => {
           setIsMounted(false);
           setIsFadingOut(false);
@@ -51,7 +45,6 @@ const ScrollToTopButton = () => {
     }
   }, [isVisible, isMounted]);
 
-  // Toggle automatico "auto" ogni 2 secondi
   useEffect(() => {
     if (isVisible && !isInteractive.current) {
       setIsAuto(true);
@@ -91,7 +84,6 @@ const ScrollToTopButton = () => {
     }
   };
 
-  // Scegli la classe di animazione in base a isFadingOut
   const animationClass = isFadingOut ? 'fade-out' : 'fade-in';
 
   return (

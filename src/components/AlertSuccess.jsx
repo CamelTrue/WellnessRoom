@@ -6,11 +6,9 @@ const AlertSuccess = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setFadeOut(true);
-    }, 4000); // Tempo prima di iniziare il fade out
+    }, 4000);
 
     const timer2 = setTimeout(() => {
-      // Qui puoi implementare la rimozione del componente se necessario
-      // Ad esempio, usando un callback o un context
     }, 5000);
 
     return () => {

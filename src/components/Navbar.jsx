@@ -7,7 +7,6 @@ import AOS from 'aos';
 
 const Navbar = () => {
     const { updateProgress } = useLoading();
-    const [backgroundPosition, setBackgroundPosition] = useState({ x: '50%', y: '50%' });
     const [showContactButton, setShowContactButton] = useState(false);
 
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
@@ -52,34 +51,11 @@ const Navbar = () => {
         };
     }, [updateProgress]);
 
-    const handleMouseMove = (e) => {
-        const { clientX, clientY, currentTarget } = e;
-        const { offsetWidth, offsetHeight, offsetLeft, offsetTop } = currentTarget;
-
-        const x = ((clientX - offsetLeft) / offsetWidth) * 100;
-        const y = ((clientY - offsetTop) / offsetHeight) * 100;
-
-        setBackgroundPosition({ x: `${x}%`, y: `${y}%` });
-    };
-
-    const handleMouseLeave = () => {
-        setBackgroundPosition({ x: '50%', y: '50%' });
-    };
-
     return (
         <>
-            <header
-                className="container-fluid mb-4"
-                onMouseMove={!isTouchDevice ? handleMouseMove : null}
-                onMouseLeave={!isTouchDevice ? handleMouseLeave : null}
-            >
+            <header className="container-fluid mb-4">
                 <div className="row">
-                    <div
-                        className="col12 header"
-                        style={{
-                            backgroundPosition: `${backgroundPosition.x} ${backgroundPosition.y}`,
-                        }}
-                    >
+                    <div className="col12 header" >
                         <div className="row position-relative">
                             <div className="col-12 waves">
                                 <div className="row">

@@ -3,10 +3,10 @@ import ScrollToTopButton from './components/ScrollToTopButton';
 import CursorFollower from './components/CursorFollower';
 import { preloadImages } from './utils/preloadImages';
 import ProgressBar from './components/ProgressBar';
-import Footer from './components/Footer';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
 import { useEffect } from 'react';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Hero from './components/Hero';
 import './App.scss'; 
 
 function App() {

@@ -13,18 +13,16 @@ const ContactUs = () => {
   const formRef = useRef(null);
   const lastScrollY = useRef(window.pageYOffset);
 
-  // Apri modal
   const openModal = () => {
     setIsModalOpen(true);
   };
 
-  // Chiudi modal con animazione
   const closeModal = () => {
     setIsClosing(true);
     setTimeout(() => {
       setIsModalOpen(false);
       setIsClosing(false);
-    }, 400); // deve combaciare con la durata di fadeOutScale/fadeOutOverlay
+    }, 400);
   };
 
   const sendEmail = (e) => {
@@ -48,7 +46,6 @@ const ContactUs = () => {
       );
   };
 
-  // Resto della logica AOS e scroll hide/show...
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
@@ -85,7 +82,6 @@ const ContactUs = () => {
 
   return (
     <>
-      {/* Barra ContactUs */}
       <div className={`contact-us-bar ${isVisible ? 'visible' : 'hidden'}`}>
         <a href="#" className="logo-container">
           <img className='logo-nav-item' src='/media/change-logo.png' alt="Logo" />
@@ -95,7 +91,6 @@ const ContactUs = () => {
         </button>
       </div>
 
-      {/* Modal */}
       {isModalOpen && (
         <div
           className={`modal-overlay ${isClosing ? 'fade-out-overlay' : ''}`}
@@ -106,7 +101,7 @@ const ContactUs = () => {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="modal-header">
-              <h2>Contattaci</h2>
+              <h2 className="form-contact-title">Contattaci</h2>
               <button className="close-button" onClick={closeModal}>
                 &times;
               </button>
@@ -163,7 +158,6 @@ const ContactUs = () => {
         </div>
       )}
 
-      {/* AlertSuccess */}
       {isSuccess && <AlertSuccess />}
     </>
   );

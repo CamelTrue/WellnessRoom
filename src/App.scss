@@ -92,17 +92,35 @@ $card-images: (
 
 .waves {
   position: absolute;
-  width: 100vw;
-  height: 105vh;
   top: 0;
   left: 0;
-  background: 
+  width: 100vw;
+  height: 105vh;
+  overflow: hidden;
+
+  background:
     linear-gradient(black 10%, rgba(0, 0, 0, 0) 80%), 
-    url(../public/media/wave2.svg); 
-  background-position: top 0 left 0, bottom calc(0vh - 8vw) left 0, bottom calc(3vh - 8vw) left 0; 
-  background-repeat: no-repeat;
-  background-size: 100%;
+    url("../public/media/wave2.svg") no-repeat left bottom; 
+
+  background-size:
+    100%,
+    100% auto,
+    100% auto;
+
+  background-repeat: no-repeat, no-repeat, no-repeat;
+
+  background-position:
+    top center,
+    bottom -100px left 0,
+    bottom -100px left 0;
+
+  filter: none;
 }
+
+
+
+
+
 
 .titles {
   position: relative;
@@ -238,12 +256,11 @@ $card-images: (
 }
 
 
-/* Classe per rendere le immagini circolari */
 .circular-image {
-  width: 400px; /* Imposta la larghezza desiderata */
-  height: 400px; /* Imposta l'altezza desiderata */
+  width: 400px;
+  height: 400px;
   border-radius: 50%;
-  object-fit: cover; /* Assicura che l'immagine riempia il contenitore senza distorsioni */
+  object-fit: cover;
   transition: 0.4s ease;
   box-shadow:
     0 0 10px #fff,
@@ -580,7 +597,7 @@ $border-radius: 8px;
   }
 
   .contact-button {
-    background-color: #76b073; // Verde acqua
+    background-color: #76b073;
     margin-right: 1vh;
     color: #fff;
     border: none;
@@ -597,7 +614,6 @@ $border-radius: 8px;
   }
 }
 
-// Modal Overlay
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -616,17 +632,13 @@ $border-radius: 8px;
 }
 
 .modal-content {
-  /* Contenitore principale del form */
   background-color: rgba($color: #020202, $alpha: 0.8);
   padding: 20px 30px;
   border-radius: 10px;
   width: 90%;
   max-width: 500px;
   position: relative;
-  /* Ombra ancora più sottile rispetto al solito */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-
-  /* Animazione iniziale di apertura del modal */
   opacity: 0;
   transform: scale(0.95);
   animation: fadeInScale 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
@@ -642,7 +654,6 @@ $border-radius: 8px;
     }
   }
 
-  /* Header del modal (titolo + pulsante chiusura) */
   .modal-header {
     display: flex;
     justify-content: space-between;
@@ -651,7 +662,7 @@ $border-radius: 8px;
 
     h2 {
       margin: 0;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       color: #ececec;
       font-weight: 600;
     }
@@ -672,10 +683,8 @@ $border-radius: 8px;
     }
   }
 
-  /* Corpo del modal (dove c'è il form) */
   .modal-body {
     form {
-      /* Effetto "stagger" su .form-group e .form-actions */
       .form-group,
       .form-actions {
         opacity: 0;
@@ -690,7 +699,6 @@ $border-radius: 8px;
         }
       }
 
-      /* Ritardo sequenziale per l’effetto a cascata */
       .form-group:nth-of-type(1) {
         animation-delay: 0.1s;
       }
@@ -704,7 +712,6 @@ $border-radius: 8px;
         animation-delay: 0.4s;
       }
 
-      /* Stili per i gruppi del form (label + input/textarea) */
       .form-group {
         margin-bottom: 1rem;
 
@@ -716,7 +723,6 @@ $border-radius: 8px;
         }
 
         .input-style {
-          /* Input senza bordi, con un box-shadow super leggero */
           border: none;
           width: 100%;
           padding: 0.75rem 1rem;
@@ -724,13 +730,11 @@ $border-radius: 8px;
           font-size: 1rem;
           background-color: #272525;
           color: #bab8b8;
-          /* Ombra sottile e quasi impercettibile */
           box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
           transition: box-shadow 0.25s ease;
 
           &:focus {
             outline: none;
-            /* Ombra leggermente più visibile sul focus */
             box-shadow: 0 1px 4px rgba(76, 175, 80, 0.15);
           }
         }
@@ -741,7 +745,6 @@ $border-radius: 8px;
         }
       }
 
-      /* Azioni del form (pulsanti Invia/Annulla) */
       .form-actions {
         display: flex;
         justify-content: flex-end;
@@ -758,7 +761,7 @@ $border-radius: 8px;
           transition: background-color 0.2s ease;
 
           &:hover {
-            background-color: #43a047; /* più scuro in hover */
+            background-color: #43a047;
           }
         }
 
@@ -773,7 +776,7 @@ $border-radius: 8px;
           transition: background-color 0.2s ease;
 
           &:hover {
-            background-color: #e53935; /* più scuro in hover */
+            background-color: #e53935;
           }
         }
       }
@@ -801,12 +804,10 @@ $border-radius: 8px;
   }
 }
 
-/* Overlay in uscita */
 .fade-out-overlay {
   animation: fadeOutOverlay 0.4s forwards ease;
 }
 
-/* Modal content in uscita */
 .fadeOutScale {
   animation: fadeOutScale 0.4s forwards ease;
 }
@@ -814,10 +815,6 @@ $border-radius: 8px;
 
 
 
-
-
-
-// Animazioni
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -865,25 +862,22 @@ $border-radius: 8px;
   }
 }
 
-/* Entrata */
 .fade-in {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Uscita */
 .fade-out {
   opacity: 0;
-  transform: translateY(20px); /* ad es. scendi un po’ verso il basso */
+  transform: translateY(20px);
 }
 
 
-/* AlertSuccess.scss */
 .alert-success {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #48bb63; // Verde di successo
+  background-color: #48bb63;
   color: #fff;
   padding: 15px 20px;
   border-radius: 5px;
@@ -900,14 +894,6 @@ $border-radius: 8px;
 
 
 
-
-
-
-
-
-
-
-// Animazione per il contenuto del modal
 @keyframes slide-down {
   from {
     transform: translateY(-50px);
@@ -919,7 +905,6 @@ $border-radius: 8px;
   }
 }
 
-// Media Query per dispositivi più piccoli
 @media (max-width: 600px) {
   .modal-content {
     width: 95%;
@@ -931,7 +916,10 @@ $border-radius: 8px;
   }
 }
 
-/* Card custom SCSS */
+
+
+
+/* Card custom */
 
 .card-skin {
   position: relative; 
@@ -1005,7 +993,6 @@ $border-radius: 8px;
   text-align: center;
 }
 
-/* Stili per dispositivi piccoli */
 @media (max-width: 768px) {
   .card-section-title {
     font-size: 2rem;
@@ -1038,11 +1025,11 @@ $border-radius: 8px;
   }
 
   .infocard-title {
-    font-size: 2rem; // Circa 32px
+    font-size: 2rem;
   }
 
   .infocard-text {
-    font-size: 1.125rem; // Circa 18px
+    font-size: 1.125rem;
   }
 }
 
@@ -1116,11 +1103,11 @@ $border-radius: 8px;
   }
 
   .infocard-title {
-    font-size: 2.5rem; // Circa 40px
+    font-size: 2.5rem;
   }
 
   .infocard-text {
-    font-size: 1.25rem; // Circa 20px
+    font-size: 1.25rem;
   }
 }
 
@@ -1184,21 +1171,12 @@ $border-radius: 8px;
 
 
 
-/* global.scss */
 
-/* =========================
-   Personalizzazione Scrollbar
-   ========================= */
-
-/* Variabili per i colori e le dimensioni della scrollbar */
 $scrollbar-width: 8px;
 $scrollbar-thumb-color: rgba(0, 0, 0, 0.5);
 $scrollbar-thumb-hover-color: rgba(0, 0, 0, 0.7);
 $scrollbar-track-color: transparent;
 
-/* -------------------------
-   Personalizzazione per WebKit (Chrome, Safari, Edge)
-   ------------------------- */
 ::-webkit-scrollbar {
   width: $scrollbar-width;
   height: $scrollbar-width;
@@ -1211,26 +1189,22 @@ $scrollbar-track-color: transparent;
 ::-webkit-scrollbar-thumb {
   background-color: $scrollbar-thumb-color;
   border-radius: $scrollbar-width;
-  border: 2px solid $scrollbar-track-color; /* Crea uno spazio attorno al thumb */
-  opacity: 0; /* Nasconde la scrollbar di default */
+  border: 2px solid $scrollbar-track-color;
+  opacity: 0;
   transition: opacity 0.3s ease, background-color 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: $scrollbar-thumb-hover-color;
-  opacity: 1; /* Mostra la scrollbar al passaggio del mouse */
+  opacity: 1;
 }
 
-/* Mostra la scrollbar quando si passa il mouse sul body */
 body:hover::-webkit-scrollbar-thumb {
   opacity: 1;
 }
 
-/* -------------------------
-   Personalizzazione per Firefox
-   ------------------------- */
 body {
-  scrollbar-width: thin; /* Opzioni: auto, thin, none */
+  scrollbar-width: thin;
   scrollbar-color: $scrollbar-thumb-color $scrollbar-track-color;
   transition: scrollbar-color 0.3s ease;
 }

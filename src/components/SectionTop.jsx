@@ -16,12 +16,10 @@ const SectionTop = () => {
         once: true,
         });
     }, []);
-        
 
     return (
         <div className="container-fluid widgets-section d-flex flex-column justify-content-center align-items-center">
             <div className="row w-100 d-flex flex-column">
-                
                 {/* Prima sezione */}
                 <div 
                     data-aos="fade-up"

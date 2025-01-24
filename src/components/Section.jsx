@@ -31,8 +31,14 @@ const Section = () => {
   
     return (
       <>
-        {/* TITOLO PRIMA DELLA MAPPATURA */}
-        <h2 className="text-center infocard-title">Chi siamo?</h2>
+        <h2 
+          className="text-center infocard-title"
+          data-aos="fade-up"
+          data-aos-delay="200" 
+          data-aos-anchor-placement="top-bottom"
+        >
+          Chi siamo?
+        </h2>
   
         {sectionsData.map((section, index) => {
           const isInverted = index === 1;
@@ -42,7 +48,6 @@ const Section = () => {
               <div className="row align-items-center mb-5 mt-5">
                 {isInverted ? (
                   <>
-                    {/* Colonna immagine */}
                     <div className="col-12 col-lg-6">
                       <div 
                         data-aos="fade-up"
@@ -57,9 +62,7 @@ const Section = () => {
                         />
                       </div>
                     </div>
-                    {/* Colonna testo */}
                     <div className="col-12 col-lg-6 mt-4 mt-lg-0">
-                      {/* Qui NON usiamo più section.title */}
                       <div 
                         data-aos="fade-up"
                         data-aos-delay="200" 
@@ -88,9 +91,7 @@ const Section = () => {
                   </>
                 ) : (
                   <>
-                    {/* Colonna testo */}
                     <div className="col-12 col-lg-6">
-                      {/* Anche qui rimosso check di section.title */}
                       <div 
                         data-aos="fade-up"
                         data-aos-delay="200" 
@@ -116,7 +117,6 @@ const Section = () => {
                         </div>
                       ))}
                     </div>
-                    {/* Colonna immagine */}
                     <div className="col-12 col-lg-6 mt-4 mt-lg-0">
                       <div 
                         data-aos="fade-up"
