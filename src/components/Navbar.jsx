@@ -1,12 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ContactUs from './ContactUs';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 
 const Navbar = () => {
-    const [showContactButton, setShowContactButton] = useState(false);
-
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+    const headerRef = useRef(null);
 
     useEffect(() => {
         AOS.init({
@@ -14,28 +13,41 @@ const Navbar = () => {
             once: true,
         });
 
-        const handleScroll = () => {
-            const navbar = document.querySelector('header');
-            if (navbar) {
-                const navbarBottom = navbar.getBoundingClientRect().bottom;
-                setShowContactButton(navbarBottom < 0);
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setIsHeaderVisible(true);
+                    } else {
+                        setIsHeaderVisible(false);
+                    }
+                });
+            },
+            {
+                root: null,
+                threshold: 0.45
             }
-        };
+        );
 
-        window.addEventListener('scroll', handleScroll);
-
-        handleScroll();
+        if (headerRef.current) {
+            observer.observe(headerRef.current);
+        }
 
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            if (headerRef.current) {
+                observer.unobserve(headerRef.current);
+            }
         };
     }, []);
 
     return (
         <>
-            <header className="container-fluid">
+            <header className="container-fluid" ref={headerRef}>
                 <div className="row">
-                    <div className="col12 header" >
+                    <div 
+                        className="col12 header"
+                        style={{ opacity: isHeaderVisible ? 1 : 0 }}
+                    >
                         <div className="row position-relative">
                             <div className="col-12 waves">
                                 <div className="row">
@@ -76,6 +88,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </header>
+
             <ContactUs />
         </>
     );
