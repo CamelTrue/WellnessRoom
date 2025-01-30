@@ -1,0 +1,119 @@
+.card-skin {
+    position: relative; 
+    border-radius: 35px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+    }
+  
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -75%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.15));
+        transform: skewX(-25deg);
+        transition: left 0.7s ease;
+    }
+  
+    &:hover::before {
+        left: 125%;
+    }
+}
+  
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-icon {
+    font-size: 1.3rem;
+    color: #91c68e;
+    margin-top: 30px;
+    margin-bottom: 60px !important;
+}
+
+.card-title {
+    h2 {
+        font-size: 1.25rem;
+        text-align: center;
+        color: #ffffff;
+        margin-top: 15px;
+    }
+}
+
+.card-text {
+    text-align: center;
+    font-size: 1rem;
+    color: #d4d4d4;
+}
+
+
+.card-responsive-hero {
+    margin: 6px;
+}
+  
+@media (max-width: 991px) {
+    .card-responsive-hero {
+        margin: 20px;
+        width: 70vw;
+    }
+}
+
+@media (max-width: 1700px) {
+    .card-title {
+        > h2 {
+            font-size: 20px !important;
+        }
+    }
+  
+    .card-text {
+        > p {
+            font-size: 15px !important;
+            padding: 1em !important;
+        }
+    }
+}
+  
+@media (max-width: 1624px) {
+    .card-title {
+        > h2 {
+            font-size: 18px !important;
+        }
+    }
+  
+    .card-text {
+        > p {
+            font-size: 14px !important;
+            padding: 0.5em 0.5em 1em 0.5em !important;
+        }
+    }
+  
+    .card-skin {
+        width: 100%;
+        min-width: 280px !important; 
+    }
+}
+  
+@media (min-width: 1190px) and (max-width: 1525px) {
+    .card-title {
+        > h2 {
+            font-size: 17px !important;
+        }
+    }
+
+    .card-text {
+        > p {
+            font-size: 13px !important;
+            padding: 0.5em 0.5em 1em 0.5em !important;
+        }
+    }
+}

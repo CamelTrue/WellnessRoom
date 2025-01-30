@@ -1,0 +1,28 @@
+.pointer {
+    cursor: pointer;
+}
+  
+.cursor-follower {
+    position: fixed;
+    top: 0;
+    left: 0;                                                    
+    width: 20px;
+    height: 20px;
+    border: 2px solid #0ff;
+    pointer-events: none; 
+    will-change: transform;
+    z-index: 9999; 
+    transform-origin: center;
+    box-shadow:
+        0 0 50px #fff,
+        20px 0 80px #f0f,
+        -20px 0 80px #0ff,
+        20px 0 300px #f0f,
+        -20px 0 300px #0ff,
+        25px 0 500px #f0f,
+        -25px 0 500px #0ff,
+        0 0 100px #fff,
+        -10px 0 120px #f0f,
+        0px 0 50px #0ff;
+    transition: background-color .8s ease, box-shadow .8s ease;
+}

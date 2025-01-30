@@ -1,4 +1,6 @@
-import IconContent from './IconContent';
+// IconContent da decommentare solo quando sectionTop e Bottom saranno complete
+// import IconContent from './IconContent';
+import './styles/components/hero.scss';
 import Section from './Section';
 import Card from './Card';
 

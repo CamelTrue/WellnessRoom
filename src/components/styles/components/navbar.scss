@@ -1,0 +1,87 @@
+.header {
+    position: relative;
+    width: 100vw;
+    height: 120vh;
+    overflow: hidden;
+    margin-bottom: 0 !important;
+}
+
+.header::after {
+    content: "";
+    position: fixed;
+    left: 0;
+    width: 100vw;
+    height: 120vh; 
+    background: url("../public/media/Header-main.webp") center no-repeat;
+    background-size: cover;
+    z-index: -1;
+    will-change: transform;
+    transform: translateZ(0); 
+}
+
+.text-header {
+    font-size: 22px !important;
+}
+
+.fixed-text-header {
+    position: fixed;
+}
+
+.fixed-text-header-top {
+    top: 47vh;
+    left: 4vw;
+}
+
+.fixed-text-header-middle {
+    top: 59vh;
+    left: 5vw;
+}
+
+.fixed-text-header-bottom {
+    top: 63vh;
+    left: 6vw;
+}
+
+.waves {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 120vh;
+    overflow: hidden;
+
+    background:
+        linear-gradient(black 10%, rgba(0, 0, 0, 0) 80%), 
+        url("../public/media/wave2.svg") no-repeat left bottom;
+
+    background-size:
+        100%,
+        100% auto,
+        100% auto;
+
+    background-repeat: no-repeat, no-repeat, no-repeat;
+
+    background-position:
+        top center,
+        bottom -1px left 0;
+
+    filter: none;
+}
+
+.titles {
+    position: relative;
+    top: 15em;
+    left: 2em;
+
+    > h1 {
+        font-size: 110px;
+        color: white;
+    }
+
+    > h2 {
+        font-size: 28px;
+        color: white;
+        font-family: inherit;
+        font-weight: 400;
+    }
+}

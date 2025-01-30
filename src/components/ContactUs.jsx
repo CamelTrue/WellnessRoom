@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import './styles/components/contactus.scss';
 import AlertSuccess from './AlertSuccess';
 import emailjs from '@emailjs/browser';
 import 'aos/dist/aos.css';

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import './styles/components/navbar.scss';
 import ContactUs from './ContactUs';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
@@ -25,7 +26,7 @@ const Navbar = () => {
             },
             {
                 root: null,
-                threshold: 0.45
+                threshold: 0.10
             }
         );
 
@@ -45,7 +46,7 @@ const Navbar = () => {
             <header className="container-fluid" ref={headerRef}>
                 <div className="row">
                     <div 
-                        className="col12 header"
+                        className="col-12 header"
                         style={{ opacity: isHeaderVisible ? 1 : 0 }}
                     >
                         <div className="row position-relative">

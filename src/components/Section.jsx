@@ -1,6 +1,7 @@
+import './styles/components/section.scss';
 import { useEffect } from "react";
-import AOS from "aos";
 import 'aos/dist/aos.css';
+import AOS from "aos";
     
 const sectionsData = [
     {

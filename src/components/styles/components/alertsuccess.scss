@@ -1,0 +1,18 @@
+.alert-success {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #48bb63;
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 1002;
+    opacity: 0.9;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  
+    &.fade-out {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './styles/components/alertsuccess.scss';
 
 const AlertSuccess = () => {
   const [fadeOut, setFadeOut] = useState(false);

@@ -1,3 +1,4 @@
+import './styles/components/card.scss';
 import React from 'react';
 
 const Card = ({ iconClass, title, text, cardNumber }) => {

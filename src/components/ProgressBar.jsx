@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './styles/components/progressbar.scss';
 
 function ProgressBar({ progress = 0, onFinish }) {
     const [exiting, setExiting] = useState(false);

@@ -1,0 +1,182 @@
+// Immagini Sezione Hero
+$card-images: (
+  1: '1.webp',
+  2: '2.webp',
+  3: '3.webp',
+  4: '4.webp',
+  5: '5.webp',
+  6: '6.webp',                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+);
+
+
+
+main {
+    padding-top: 0;
+  
+    .card-section {
+        padding-top: 0 !important;
+    
+        &-title {
+            font-size: 50px;
+            color: #68c862;
+        }
+        
+        &-text {
+            font-family: inherit;
+            color: grey;
+            font-size: 20px !important;
+            font-weight: 500;
+        }
+    }
+}
+
+
+
+.card {
+    @each $number, $image in $card-images {
+        &-#{$number} {
+            background: 
+                linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)),
+                url(../public/media/#{$image});
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+  
+    &-text {
+        font-size: 16px !important;
+        padding: 2em 2em 0 2em;
+    }
+  
+    &-skin {
+        min-height: 500px;
+  
+        &:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+        }
+    }
+}
+
+.card-section-removable {
+    height: 30vh;
+}
+
+@media (max-width: 768px) {
+    .card-section-title {
+        font-size: 2rem;
+    }
+  
+    .card-section-text {
+        font-size: 1rem;
+    }
+  
+    .card-title {
+        h2 {
+            font-size: 1.5rem;
+        }
+    }
+  
+    .card-text {
+        font-size: 1rem;
+    }
+  
+    .card-skin {
+        width: 90vw;
+    }
+  
+    .titles {
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+  
+    .infocard-title {
+        font-size: 2rem;
+    }
+  
+    .infocard-text {
+        font-size: 1.125rem;
+    }  
+}
+
+@media (max-width: 500px) {
+    .card-section-title {
+        font-size: 2.3rem;
+    }
+  
+    .align-small-devices {
+        margin: auto;
+    }
+  
+    .card-section-text {
+        font-size: 1.3rem;
+    }
+  
+    .card-title {
+        h2 {
+            font-size: 1.4rem;
+        }
+    }
+  
+    .card-text {
+        font-size: 1rem;
+    }
+  
+    .card-skin {
+        max-width: 300px;
+    }
+  
+    main {
+        margin: auto;
+    }
+  
+    .icons-section {
+        margin: auto;
+    }
+  
+    .icons-maring-small-devices {
+        margin: 0 2.5em;
+    }
+  
+    .sm-device {
+        margin: auto;
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (min-width: 992px) {
+    .card-section-title {
+        font-size: 3rem;
+    }
+  
+    .card-section-text {
+        font-size: 1.6rem;
+    }
+  
+    .card-title {
+        h2 {
+            font-size: 1.6rem;
+        }
+    }
+  
+    .card-text {
+        font-size: 1.3rem;
+    }
+  
+    main {
+        margin: 0 10em;
+    }
+  
+    .infocard-title {
+        font-size: 2.5rem;
+    }
+  
+    .infocard-text {
+      font-size: 1.25rem;
+    }
+}
