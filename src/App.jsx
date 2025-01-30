@@ -15,7 +15,7 @@ function App() {
       <LoadingConsumerApp /> 
     </LoadingProvider>
   );
-}
+} 
 
 function LoadingConsumerApp() {
   const { isLoaded, loadingProgress, updateProgress } = useLoading();

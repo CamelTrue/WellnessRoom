@@ -4,21 +4,10 @@
     height: 120vh;
     overflow: hidden;
     margin-bottom: 0 !important;
-}
-
-.header::after {
-    content: "";
-    position: fixed;
-    left: 0;
-    width: 100vw;
-    height: 120vh; 
     background: url("../public/media/Header-main.webp") center no-repeat;
     background-size: cover;
-    z-index: -1;
-    will-change: transform;
-    transform: translateZ(0); 
 }
-
+  
 .text-header {
     font-size: 22px !important;
 }
