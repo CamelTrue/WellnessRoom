@@ -20,7 +20,6 @@ function App() {
 function LoadingConsumerApp() {
   const { isLoaded, loadingProgress, updateProgress } = useLoading();
 
-  // Stato locale per decidere se mostrare il loader (anche dopo isLoaded = true, per animazione)
   const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
@@ -41,7 +40,6 @@ function LoadingConsumerApp() {
       'media/Radha.webp'
     ];
 
-    // Funzione di callback di caricamento incrementale
     const updateLoadingProgress = (loaded, total) => {
       const progress = Math.round((loaded / total) * 100);
       updateProgress(progress);
