@@ -3,49 +3,74 @@ import ScrollToTopButton from './components/ScrollToTopButton';
 import CursorFollower from './components/CursorFollower';
 import { preloadImages } from './utils/preloadImages';
 import ProgressBar from './components/ProgressBar';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
 import './App.scss'; 
 
 function App() {
-    return (
-        <LoadingProvider>
-            <LoadingConsumerApp /> 
-        </LoadingProvider>
-    );
+  return (
+    <LoadingProvider>
+      <LoadingConsumerApp /> 
+    </LoadingProvider>
+  );
 }
 
 function LoadingConsumerApp() {
-    const { isLoaded, loadingProgress, updateProgress } = useLoading();
-    console.log("Loading progress:", loadingProgress, "Is loaded:", isLoaded);
+  const { isLoaded, loadingProgress, updateProgress } = useLoading();
 
-    useEffect(() => {
-        const imagesToPreload = [
-            '/media/Header-main.webp',
-            '/media/wave2.svg', 
-        ];
+  // Stato locale per decidere se mostrare il loader (anche dopo isLoaded = true, per animazione)
+  const [showLoader, setShowLoader] = useState(true);
 
-        preloadImages(imagesToPreload).then(() => {
-            updateProgress(100);
-        });
-    }, [updateProgress]);
+  useEffect(() => {
+    const imagesToPreload = [
+      '/media/Header-main.webp',
+      '/media/wave1.svg',
+      '/media/wave2.svg',
+      'media/1.webp', 
+      'media/2.webp', 
+      'media/3.webp', 
+      'media/4.webp', 
+      'media/5.webp', 
+      'media/6.webp',
+      'media/change-logo.png',
+      'media/footer.jpg',
+      'media/Lorenzo.webp',
+      'media/Marta.webp',
+      'media/Radha.webp'
+    ];
 
-    if (!isLoaded) {
-        console.log("Rendering progress bar with progress:", loadingProgress);
-        return <ProgressBar progress={loadingProgress} />;
-    }
+    // Funzione di callback di caricamento incrementale
+    const updateLoadingProgress = (loaded, total) => {
+      const progress = Math.round((loaded / total) * 100);
+      updateProgress(progress);
+    };
 
-    return (
-        <div>
-            <CursorFollower />
-            <Navbar />
-            <Hero />
-            <Footer />
-            <ScrollToTopButton />
-        </div>
-    );
+    preloadImages(imagesToPreload, updateLoadingProgress).then(() => {
+      updateProgress(100);
+    });
+  }, [updateProgress]);
+
+  const handleLoaderFinish = () => {
+    setShowLoader(false);
+  };
+
+  return (
+    <div>
+      {showLoader && (
+        <ProgressBar
+          progress={loadingProgress}
+          onFinish={handleLoaderFinish}
+        />
+      )}
+        <CursorFollower />
+        <Navbar />
+        <Hero />
+        <Footer />
+        <ScrollToTopButton />
+    </div>
+  );
 }
 
 export default App;

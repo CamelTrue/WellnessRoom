@@ -1,12 +1,9 @@
-import { useLoading } from '../context/LoadingContext';
 import { useEffect, useState } from 'react';
-import wave2 from '/media/wave2.svg'; 
 import ContactUs from './ContactUs';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 
 const Navbar = () => {
-    const { updateProgress } = useLoading();
     const [showContactButton, setShowContactButton] = useState(false);
 
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
@@ -16,23 +13,6 @@ const Navbar = () => {
             duration: 1000,
             once: true,
         });
-
-        const imagesToPreload = [wave2];
-
-        Promise.all(
-            imagesToPreload.map(
-                (src) =>
-                    new Promise((resolve, reject) => {
-                        const img = new Image();
-                        img.src = src;
-                        img.onload = resolve;
-                        img.onerror = () => {
-                            console.error(`Errore nel caricamento dell'immagine: ${src}`);
-                            resolve();
-                        };
-                    })
-            )
-        ).then(() => updateProgress(50));
 
         const handleScroll = () => {
             const navbar = document.querySelector('header');
@@ -49,11 +29,11 @@ const Navbar = () => {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, [updateProgress]);
+    }, []);
 
     return (
         <>
-            <header className="container-fluid mb-4">
+            <header className="container-fluid">
                 <div className="row">
                     <div className="col12 header" >
                         <div className="row position-relative">

@@ -50,7 +50,12 @@ const Hero = () => {
                 </section>
 
                 <Section />
-                <IconContent />
+
+                {/* <IconContent /> */}
+                {/* Header da rimuovere quando IconContent sarà finito */}
+                <section className='card-section-removable'>
+
+                </section>
             </main>
         </>
     );
