@@ -8,12 +8,6 @@ const Footer = () => {
                 <div className="row footer-container ">
                     <div className="col-12 col-sm-5">
                         <div className="row">
-                            <h3 className="footer-title">Lorem Ipsum dolor</h3>
-                            <p className="footer-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto voluptatem quia, dolorum iure similique
-                                suscipit temporibus praesentium quos mollitia nisi ipsam, quas alias vitae rerum, accusantium officia.
-                                Nesciunt, reiciendis deleniti!
-                            </p>
                         </div>
                     </div>
                     <div className="mt-4 ms-auto">
@@ -25,26 +19,6 @@ const Footer = () => {
                                 <a href="#"><i className="fa-brands fa-twitter m-2 footer-icon-social"></i></a>
                                 <a href="#"><i className="fa-brands fa-linkedin m-2 footer-icon-social"></i></a>
                             </div>
-                        </div>
-                    </div>
-                    <div className="col-12 col-sm-3 mt-4">
-                        <div className="row footer-policies">
-                            <h3 className="footer-title">Link utili</h3>
-                            <ul className="list-unstyled">
-                                <li>
-                                    {/* Iubenda */}
-                                    <a
-                                        href="https://www.iubenda.com/privacy-policy/12345678" // test layuot iubenda
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        Privacy & Cookie Policy
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">Termini e Condizioni</a>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </div>

@@ -10,12 +10,14 @@ const ContactUs = () => {
   const [isClosing, setIsClosing] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(true);
 
   const formRef = useRef(null);
   const lastScrollY = useRef(window.pageYOffset);
 
   const openModal = () => {
     setIsModalOpen(true);
+    setIsDisabled(true);
   };
 
   const closeModal = () => {
@@ -38,7 +40,7 @@ const ContactUs = () => {
       .then(
         (result) => {
           formRef.current.reset();
-          closeModal(); 
+          closeModal();
           setIsSuccess(true);
         },
         (error) => {
@@ -102,7 +104,8 @@ const ContactUs = () => {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="modal-header">
-              <h2 className="form-contact-title">Contattaci</h2>
+              {/* <h2 className="form-contact-title">Contattaci</h2> */}
+              <h2 className='form-contact-title'>Modulo "Contattaci temporaneamente bloccato"</h2>
               <button className="close-button" onClick={closeModal}>
                 &times;
               </button>
@@ -118,6 +121,7 @@ const ContactUs = () => {
                     name="user_name"
                     placeholder='Inserisci il tuo nome..'
                     required
+                    disabled={isDisabled}
                   />
                 </div>
                 <div className="form-group">
@@ -129,6 +133,7 @@ const ContactUs = () => {
                     name="user_email"
                     placeholder='Inserisci la tua email..'
                     required
+                    disabled={isDisabled}
                   />
                 </div>
                 <div className="form-group">
@@ -139,10 +144,11 @@ const ContactUs = () => {
                     name="message"
                     placeholder='Comunicaci la tua richiesta..'
                     required
+                    disabled={isDisabled}
                   ></textarea>
                 </div>
                 <div className="form-actions">
-                  <button type="submit" className="send-button">
+                  <button type="submit" className="send-button" disabled={isDisabled}>
                     Invia
                   </button>
                   <button
