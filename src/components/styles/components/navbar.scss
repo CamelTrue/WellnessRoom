@@ -4,7 +4,7 @@
     height: 120vh;
     overflow: hidden;
     margin-bottom: 0 !important;
-    background: url("../public/media/Header-main.webp") center no-repeat;
+    background: url("/media/Header-main.webp") center no-repeat;
     background-size: cover;
 }
   
@@ -41,7 +41,7 @@
 
     background:
         linear-gradient(black 10%, rgba(0, 0, 0, 0) 80%), 
-        url("../public/media/wave2.svg") no-repeat left bottom;
+        url("/media/wave2.svg") no-repeat left bottom;
 
     background-size:
         100%,
