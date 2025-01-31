@@ -19,14 +19,14 @@ const Hero = () => {
         <>
             <main>
                 {/* Card Section */}
-                <section className="container-fluid pt-5 card-section">
+                <section className="container-fluid card-section">
                     <div className="row">
                         <div className="col-12">
                             <div className="row d-flex flex-column align-items-center text-center mb-4 align-small-devices">
                                 <div className="col-12 col-md-8 col-lg-6">
                                     <h2 className="card-section-title">Cosa Offriamo?</h2>
                                 </div>
-                                <div className="col-12 col-md-10 col-lg-8 mt-3">
+                                <div className="col-12 col-md-10 col-lg-8">
                                     <h3 className="card-section-text">
                                         Affidati a noi per ritrovare il tuo equilibrio psico-fisico attraverso percorsi completi in base alle tue 
                                         esigenze a partire da una semplice ricerca di benessere fino ad arrivare alla performance sportiva.
@@ -36,7 +36,7 @@ const Hero = () => {
 
                             <div className="row pt-4 text-white justify-content-center">
                                 {cards.map((card, index) => (
-                                    <div key={index} className="col-sm-8 col-lg-6 col-xl-4 col-xxl-3 d-flex justify-content-center">
+                                    <div key={index} className="col-sm-8 col-lg-6 col-xl-4 col-xxl-3 d-flex justify-content-center m-2">
                                         <Card
                                             iconClass={card.iconClass}
                                             title={card.title}

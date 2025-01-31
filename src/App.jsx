@@ -12,7 +12,7 @@ import './App.scss';
 function App() {
   return (
     <LoadingProvider>
-      <LoadingConsumerApp /> 
+      <LoadingConsumerApp />
     </LoadingProvider>
   );
 } 
