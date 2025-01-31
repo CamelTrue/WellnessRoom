@@ -24,19 +24,19 @@ function LoadingConsumerApp() {
 
   useEffect(() => {
     const imagesToPreload = [
-      'media/Header-main.webp',
-      'media/wave2.svg',
-      'media/1.webp', 
-      'media/2.webp', 
-      'media/3.webp', 
-      'media/4.webp', 
-      'media/5.webp', 
-      'media/6.webp',
-      'media/change-logo.png',
-      'media/footer.jpg',
-      'media/Lorenzo.webp',
-      'media/Marta.webp',
-      'media/Radha.webp'
+      '/media/Header-main.webp',
+      '/media/wave2.svg',
+      '/media/1.webp', 
+      '/media/2.webp', 
+      '/media/3.webp', 
+      '/media/4.webp', 
+      '/media/5.webp', 
+      '/media/6.webp',
+      '/media/change-logo.png',
+      '/media/footer.jpg',
+      '/media/Lorenzo.webp',
+      '/media/Marta.webp',
+      '/media/Radha.webp'
     ];
 
     const updateLoadingProgress = (loaded, total) => {
