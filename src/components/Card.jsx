@@ -2,7 +2,7 @@ import './styles/components/card.scss';
 import React from 'react';
 
 const Card = ({ iconClass, title, text, cardNumber }) => {
-    const imageSrc = `/public/media/${cardNumber}.webp`;
+    const imageSrc = `/media/${cardNumber}.webp`;
 
     return (
         <article className="d-flex justify-content-center card-responsive-hero">
