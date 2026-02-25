@@ -15,12 +15,6 @@ const ContactUs = () => {
   const formRef = useRef(null);
   const lastScrollY = useRef(window.pageYOffset);
 
-  const [initializer, setInitializer] = useState(window.pageYOffset);
-  
-  useEffect(() => {
-    setInitializer()
-  }, [initializer]);
-
   const openModal = () => {
     setIsModalOpen(true);
     setIsDisabled(true);
