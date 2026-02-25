@@ -39,7 +39,7 @@ const Navbar = () => {
                 observer.unobserve(headerRef.current);
             }
         };
-    }, []);
+    }, [observer]);
 
     return (
         <>
